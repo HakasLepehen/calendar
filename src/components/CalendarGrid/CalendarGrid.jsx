@@ -1,14 +1,29 @@
 import React from 'react';
 import classes from "./CalendarGrid.module.css";
 
-const CalendarGrid = () => {
-    const totalDays = 35;
-    const daysArray = [...Array(totalDays)];
+const CalendarGrid = ({startDay, endDay}) => {
+    const totalDays = [];
+    const day = startDay.clone();
+
+
+    const calculateDays = () => {
+        while (day.isSameOrBefore(endDay)) {
+            totalDays.push(day.clone().format('DD MMM'));
+            day.add(1, 'day');
+        }
+    }
+
+    calculateDays();
+
+    // console.log(startDay);
+    // console.log(day);
+    // console.log(totalDays);
+
     return (
         <div className={classes.wrapper}>
-            {daysArray.map((_, index) => (
+            {totalDays.map((day, index) => (
                 <div className={classes.day} key={index}>
-                    <div className={classes.label}>{index}</div>
+                    <div className={classes.label}>{day}</div>
                     <div className={classes.event}>{index}</div>
                     <div className={classes.event}>{index}</div>
                     <div className={classes.event}>{index}</div>

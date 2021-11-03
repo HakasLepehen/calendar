@@ -1,19 +1,21 @@
 .wrapper {
+    background-color: transparent;
+    border: 2px solid transparent;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 8em);
-    gap: 0.5em;
+    gap: 2px;
 }
 
 .day {
     background-color: #fdf5df;
-    border: 1px solid black;
     padding: 0 1px;
 }
 
 .label,
 .event {
     font-size: 16px;
+    font-weight: 500;
     line-height: 18px;
     height: calc(20% - 5px);
     padding: 0 10px;
@@ -27,7 +29,7 @@
 .event {
     border: 1px solid blue;
     background-color: cornflowerblue;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #fff;
     margin-bottom: 2px;
     text-align: left;
