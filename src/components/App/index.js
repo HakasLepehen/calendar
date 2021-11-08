@@ -1,13 +1,12 @@
 import './App.css';
-import Monitor from "../Monitor/Monitor";
+import Month from "../Monitor/Month";
 import CalendarGrid from "../CalendarGrid/CalendarGrid";
 import Weekdays from "../WeekDays/WeekDays";
 import moment from "moment/min/moment-with-locales.min.js";
 moment.locale('ru');
 
 let weekdays = moment.weekdays(true);
-
-console.log('weekdays ', moment.weekdays(true));
+let month = moment().format('MMMM');
 
 function Index() {
     const startDay = moment().startOf('month');
@@ -15,7 +14,7 @@ function Index() {
 
     return (
         <div className="App">
-            <Monitor/>
+            <Month name={month}/>
             <Weekdays week={weekdays} />
             <CalendarGrid startDay={startDay} endDay={endDay}/>
         </div>

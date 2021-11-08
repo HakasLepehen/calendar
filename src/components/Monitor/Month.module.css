@@ -1,0 +1,6 @@
+.month {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 0;
+    text-transform: capitalize;
+}
