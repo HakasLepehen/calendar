@@ -19,15 +19,17 @@ let weekdays = moment.weekdays(true); //change weekdays in europe-like version
  */
 function Index() {
     const [today, setToday] = useState(moment());
-    const month = today.format('MMMM');
+    const [month, setMonth] = useState(today.format('MMMM'));
+    // const month = today.format('MMMM');
 
     // get range of days in this month
     const startDay = moment().startOf('month');
     const endDay = moment().endOf('month');
 
     const increment = (e) => {
-        // e.stopPropagation();
+        e.stopPropagation();
         setToday(today.add(1, 'month'));
+        setMonth(today.format('MMMM'));
         console.log('new today is ',today);
         console.log('new month', month);
     }
