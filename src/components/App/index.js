@@ -15,7 +15,7 @@ let month = moment().format('MMMM');
 
 /**
  * Main function of my application
- **/
+ */
 function Index() {
 
     // get range of days in this month
