@@ -6,24 +6,35 @@ import CalendarGrid from "../CalendarGrid/CalendarGrid";
 import Weekdays from "../WeekDays/WeekDays";
 
 import * as moment from "moment";
-import 'moment/locale/ru'; //Import moment.js and russian locale from library
+import 'moment/locale/ru';
+import {useState} from "react"; //Import moment.js and russian locale from library
 
 moment.locale('ru');
 
 let weekdays = moment.weekdays(true); //change weekdays in europe-like version
-let month = moment().format('MMMM');
+
 
 /**
  * Main function of my application
  */
 function Index() {
+    const [today, setToday] = useState(moment());
+    const month = today.format('MMMM');
 
     // get range of days in this month
     const startDay = moment().startOf('month');
     const endDay = moment().endOf('month');
 
+    const increment = (e) => {
+        // e.stopPropagation();
+        setToday(today.add(1, 'month'));
+        console.log('new today is ',today);
+        console.log('new month', month);
+    }
+
     return (
         <div className="App">
+            <button onClick={increment}>Вперед</button>
             <Month name={month}/>
             <Weekdays week={weekdays}/>
             <CalendarGrid startDay={startDay} endDay={endDay}/>
