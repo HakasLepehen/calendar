@@ -1,8 +1,15 @@
 import './App.css';
-import moment from "moment";
+// import moment from "moment";
 import Monitor from "../Monitor/Monitor";
 import CalendarGrid from "../CalendarGrid/CalendarGrid";
 import Weekdays from "../WeekDays/WeekDays";
+import moment from "moment/min/moment-with-locales.min";
+moment.locale('ru');
+
+let local = moment();
+
+console.log(local.format('DD/MMM/YYYY'))
+
 
 // moment.locale('ru', {
 //     week: {dow: 1},
@@ -50,11 +57,9 @@ import Weekdays from "../WeekDays/WeekDays";
 let defaultWeekdays = Array.apply(null, Array(7)).map(function (_, i) {
     return moment(i, 'e').startOf('week').isoWeekday(i + 1).format('dddd');
 });
-moment.locale('ru', {
-    monthsShort : 'Янв_Фев_Март_Апр_Май_Июнь_Июль_Авг_Сен_Окт_Ноя_Дек'.split('_')
-})
-
-console.log('Меняем язык', moment());
+// moment.locale('ru', {
+//     monthsShort : 'Янв_Фев_Март_Апр_Май_Июнь_Июль_Авг_Сен_Окт_Ноя_Дек'.split('_')
+// })
 
 function Index() {
     const startDay = moment().startOf('month');
