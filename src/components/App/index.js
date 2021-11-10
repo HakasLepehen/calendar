@@ -21,9 +21,17 @@ function Index() {
     const [today, setToday] = useState(moment());
     const [month, setMonth] = useState(today.format('MMMM'));
 
+    console.log('today is', today);
+    console.log('month is', month);
+
     // get range of days in this month
-    const startDay = moment().startOf('month');
-    const endDay = moment().endOf('month');
+    // const startDay = moment().startOf('month');
+    // const endDay = moment().endOf('month');
+    const startDay = today.startOf('month');
+    const endDay = today.endOf('month');
+
+    console.log('startDay is ', startDay);
+    console.log('endDay is ', endDay);
 
     return (
         <div className="App">
@@ -35,7 +43,10 @@ function Index() {
             />
 
             <Weekdays week={weekdays}/>
-            <CalendarGrid startDay={startDay} endDay={endDay}/>
+            {/*<CalendarGrid*/}
+            {/*    startDay={startDay}*/}
+            {/*    endDay={endDay}*/}
+            {/*/>*/}
         </div>
     );
 }
