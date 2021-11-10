@@ -6,19 +6,14 @@ const CalendarGrid = ({startDay, endDay}) => {
     const totalDays = [];
     const day = startDay.clone();
 
-
     const calculateDays = () => {
         while (day.isSameOrBefore(endDay)) {
-            totalDays.push(day.clone().format('DD MMM'));
+            totalDays.push(day.clone().format('D'));
             day.add(1, 'day');
         }
     }
 
     calculateDays();
-
-    // console.log(startDay);
-    // console.log(day);
-    // console.log(totalDays);
 
     return (
         <div className={classes.wrapper}>
