@@ -43,10 +43,10 @@ function Index() {
             />
 
             <Weekdays week={weekdays}/>
-            {/*<CalendarGrid*/}
-            {/*    startDay={startDay}*/}
-            {/*    endDay={endDay}*/}
-            {/*/>*/}
+            <CalendarGrid
+                startDay={startDay}
+                endDay={endDay}
+            />
         </div>
     );
 }
