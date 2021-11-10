@@ -22,16 +22,13 @@ function Index() {
     const [month, setMonth] = useState(today.format('MMMM'));
 
     console.log('today is', today);
-    console.log('month is', month);
+    console.log('month is ', month);
 
     // get range of days in this month
-    // const startDay = moment().startOf('month');
-    // const endDay = moment().endOf('month');
-    const startDay = today.startOf('month');
-    const endDay = today.endOf('month');
-
-    console.log('startDay is ', startDay);
-    console.log('endDay is ', endDay);
+    const startDay = moment(today).startOf('month');
+    const endDay = moment(today).endOf('month');
+    // const startDay = today.startOf('month');
+    // const endDay = today.endOf('month');
 
     return (
         <div className="App">
@@ -46,6 +43,7 @@ function Index() {
             <CalendarGrid
                 startDay={startDay}
                 endDay={endDay}
+                today={today}
             />
         </div>
     );

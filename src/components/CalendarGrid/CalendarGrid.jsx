@@ -2,13 +2,15 @@ import React from 'react';
 import classes from "./CalendarGrid.module.css";
 
 
-const CalendarGrid = ({startDay, endDay}) => {
+const CalendarGrid = ({startDay, endDay,  today}) => {
     const totalDays = [];
     const day = startDay.clone();
+    console.log('endDay', endDay);
+    console.log('startDay', startDay.day());
 
     const calculateDays = () => {
         while (day.isSameOrBefore(endDay)) {
-            totalDays.push(day.clone().format('D'));
+            totalDays.push(day.format('D MMM'));
             day.add(1, 'day');
         }
     }
