@@ -11,6 +11,10 @@
     background-color: #fdf5df;
     padding: 0 1px;
 }
+.inactiveDay {
+    background-color: rgba(253, 245, 223, 0.5);
+    padding: 0 1px;
+}
 
 .label,
 .event {
