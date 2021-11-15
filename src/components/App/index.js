@@ -25,7 +25,7 @@ function Index() {
     console.log('month is ', month);
 
     // get range of days in this month
-    const startDay = moment(today).startOf('month');
+    const startDay = moment(today).startOf('month').startOf('week');
     const endDay = moment(today).endOf('month');
 
     return (
