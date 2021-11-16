@@ -6,38 +6,3 @@
     grid-template-rows: repeat(5, 8em);
     gap: 2px;
 }
-
-.day {
-    background-color: #fdf5df;
-    padding: 0 1px;
-}
-.inactiveDay {
-    background-color: rgba(253, 245, 223, 0.5);
-    padding: 0 1px;
-}
-
-.label,
-.event {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 18px;
-    height: calc(20% - 5px);
-    padding: 0 10px;
-
-}
-.label {
-    margin-bottom: 2px;
-    text-align: right;
-}
-
-.event {
-    border: 1px solid blue;
-    background-color: cornflowerblue;
-    border-radius: 5px;
-    color: #fff;
-    margin-bottom: 2px;
-    text-align: left;
-}
-.event:hover {
-    cursor: pointer;
-}

@@ -1,0 +1,16 @@
+.shift {
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: 1px solid blue;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    height: calc(20% - 5px);
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding: 0 10px;
+    text-align: left;
+}
+.shift:hover {
+    cursor: pointer;
+}

@@ -1,22 +1,41 @@
 import React from 'react';
 import classes from "./CalendarGrid.module.css";
+import moment from "moment";
+import Day from "../Day/Day";
 
 
 const CalendarGrid = ({startDay, endDay, today}) => {
     const totalDays = [];
     const day = startDay.clone();
+    const startMonth = today.clone().startOf('month');
     console.log('endDay', endDay);
     console.log('startDay', startDay);
+    console.log('startMonth', startMonth);
 
     const calculateDays = () => {
-        for (let i = 0; i < startDay.weekday(); i++) {
-            totalDays.push('')
-        }
         while (day.isSameOrBefore(endDay)) {
-            totalDays.push(day.format('DD MMM'));
+            while (moment(day).isBefore(startMonth)) {
+                console.log('day are ', day);
+                totalDays.push(
+                    {
+                        thisMonth: false,
+                        day: day.format('D MMM'),
+                        events: []
+                    }
+                )
+                day.add(1, 'day');
+            }
+            console.log('day is ', day)
+            totalDays.push(
+                {
+                    thisMonth: true,
+                    day: day.format('D MMM'),
+                    shifts: ['13', '31']
+                }
+            );
             day.add(1, 'day');
         }
-        console.log(totalDays);
+        console.log(totalDays)
     }
 
 
@@ -24,18 +43,9 @@ const CalendarGrid = ({startDay, endDay, today}) => {
 
     return (
         <div className={classes.wrapper}>
-            {totalDays.map((day, index) => {
-                if (!day) {
-                    return (<div className={classes.inactiveDay} key={index}/>)
-                }
-                return <div className={classes.day} key={index}>
-                    <div className={classes.label}>{day}</div>
-                    <div className={classes.event}>{index}</div>
-                    <div className={classes.event}>{index}</div>
-                    <div className={classes.event}>{index}</div>
-                    <div className={classes.event}>{index}</div>
-                </div>
-            })}
+            {
+                totalDays.map((dayObj, index) => <Day day={dayObj} key={index}/>)
+            }
         </div>
     );
 };

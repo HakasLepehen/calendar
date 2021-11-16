@@ -1,0 +1,23 @@
+.day {
+    background-color: #fdf5df;
+    padding: 0 1px;
+}
+.inactiveDay {
+    background-color: rgba(253, 245, 223, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 1px;
+}
+
+.label {
+    color: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    height: calc(20% - 5px);
+    padding: 0 10px;
+
+}
+.label {
+    margin-bottom: 2px;
+    text-align: right;
+}
