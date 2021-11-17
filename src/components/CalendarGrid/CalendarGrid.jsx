@@ -20,17 +20,16 @@ const CalendarGrid = ({startDay, endDay, today}) => {
                     {
                         thisMonth: false,
                         day: day.format('D MMM'),
-                        events: []
+                        events: ['1', '3']
                     }
                 )
                 day.add(1, 'day');
             }
-            console.log('day is ', day)
             totalDays.push(
                 {
                     thisMonth: true,
                     day: day.format('D MMM'),
-                    shifts: ['13', '31']
+                    shifts: ['Белозеров Сергей', 'Поляк Степан']
                 }
             );
             day.add(1, 'day');

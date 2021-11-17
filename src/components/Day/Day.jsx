@@ -4,17 +4,36 @@ import Shift from "../Shift/Shift";
 
 const Day = ({day}) => {
     if (!day.thisMonth) {
-        return (<div className={classes.inactiveDay}>
-            <div className={classes.label}>
-                {day.day}
+        console.log({...day});
+        return (
+            <div className={classes.inactiveDay}>
+                <div className={classes.label}>{day.day}</div>
             </div>
-        </div>)
+        )
     }
+    // displaying today in calendar
+    if (day.day === window.moment().format('D MMM')) {
+        return (
+            <div className={classes.today}>
+                <div className={classes.label}>
+                    <span className={classes.todayLabel}>{day.day}</span>
+                </div>
+                {
+                    (!day.shifts.length)
+                        ? (<div>Сегодня смен нет...</div>)
+                        : day.shifts.map(
+                            (shift, index) => <Shift shift={shift} key={index}/>
+                        )
+                }
+            </div>
+        )
+    }
+
     return (
         <div className={classes.day}>
             <div className={classes.label}>{day.day}</div>
             {
-                !day.shifts.length
+                (!day.shifts.length)
                     ? (<div>Сегодня смен нет...</div>)
                     : day.shifts.map(
                         (shift, index) => <Shift shift={shift} key={index}/>

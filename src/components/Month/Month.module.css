@@ -9,8 +9,15 @@
 }
 
 .month button {
+    background-color: rgb(203, 240, 255);
+    border: 2px solid #0175a8ff;
+    border-radius: 4px;
     display: flex;
     margin: 0 20px;
+}
+
+.month button span {
+    color: #0175a8ff;
 }
 
 .month button:hover {
