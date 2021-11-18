@@ -20,7 +20,7 @@ const CalendarGrid = ({startDay, endDay, today}) => {
                     {
                         thisMonth: false,
                         day: day.format('D MMM'),
-                        events: ['1', '3']
+                        events: []
                     }
                 )
                 day.add(1, 'day');
