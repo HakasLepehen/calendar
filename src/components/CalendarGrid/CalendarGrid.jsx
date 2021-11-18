@@ -19,7 +19,7 @@ const CalendarGrid = ({startDay, endDay, today}) => {
                 totalDays.push(
                     {
                         thisMonth: false,
-                        day: day.format('D MMM'),
+                        day: day.clone().format('D MMM'),
                         events: []
                     }
                 )
@@ -29,6 +29,7 @@ const CalendarGrid = ({startDay, endDay, today}) => {
                 {
                     thisMonth: true,
                     day: day.format('D MMM'),
+                    fullday: moment(day),
                     shifts: ['Белозеров Сергей', 'Поляк Степан']
                 }
             );
@@ -43,7 +44,12 @@ const CalendarGrid = ({startDay, endDay, today}) => {
     return (
         <div className={classes.wrapper}>
             {
-                totalDays.map((dayObj, index) => <Day day={dayObj} key={index}/>)
+                totalDays.map((dayObj, index) =>
+                    <Day
+                        day={dayObj}
+                        onClick={dayObj}
+                        key={index}
+                    />)
             }
         </div>
     );
