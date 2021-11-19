@@ -47,7 +47,6 @@ const CalendarGrid = ({startDay, endDay, today}) => {
                 totalDays.map((dayObj, index) =>
                     <Day
                         day={dayObj}
-                        onClick={dayObj}
                         key={index}
                     />)
             }
