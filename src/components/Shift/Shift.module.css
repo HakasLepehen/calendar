@@ -13,7 +13,24 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.shift .label {}
+
+.shift .delete {
+    display: none;
+}
+
 .shift:hover {
     cursor: pointer;
+}
+
+.shift:hover .delete {
+    color: red;
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
 }
