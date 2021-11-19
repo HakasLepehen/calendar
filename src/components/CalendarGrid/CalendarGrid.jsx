@@ -16,7 +16,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
           thisMonth: false,
 
           day: day.clone().format('D MMM'),
-          events: [],
+          shifts: ['Белозеров Сергей', 'Поляк Степан'],
         });
         day.add(1, 'day');
       }
@@ -24,7 +24,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
         thisMonth: true,
         day: day.format('D MMM'),
         fullday: moment(day),
-        shifts: ['Белозеров Сергей', 'Поляк Степан'],
+        shifts: ['Белозеров Сергей', 'Поляк Степан', 'Белозеров Сергей', 'Поляк Степан'],
       });
       day.add(1, 'day');
     }

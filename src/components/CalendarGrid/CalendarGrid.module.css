@@ -3,6 +3,6 @@
     border: 2px solid transparent;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 8em);
-    gap: 2px;
+    grid-template-rows: repeat(6, min-content);
+    gap: 5px;
 }
