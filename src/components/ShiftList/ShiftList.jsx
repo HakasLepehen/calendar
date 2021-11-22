@@ -2,8 +2,7 @@ import React from 'react';
 import classes from './ShiftList.module.css';
 import Shift from '../Shift/Shift';
 
-function ShiftList(props) {
-  console.log(props.shifts);
+function ShiftList({ ...props }) {
   return (
     <div className={classes.shifts}>
       {props.shifts.map((shift, index) => (

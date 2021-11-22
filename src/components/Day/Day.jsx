@@ -25,7 +25,7 @@ const Day = ({ day }) => {
   }
 
   return (
-    <div className={classes.day} onClick={() => console.log(day.fullday)}>
+    <div className={classes.day}>
       <div className={classes.label}>{day.day}</div>
       <ShiftList shifts={day.shifts} />
     </div>
