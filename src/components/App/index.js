@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import * as moment from 'moment';
 
 // Import self-made components
 import Month from '../Month/Month';
 import CalendarGrid from '../CalendarGrid/CalendarGrid';
 import Weekdays from '../WeekDays/WeekDays';
-
-import * as moment from 'moment';
+// Import moment.js and russian locale from library
 import 'moment/locale/ru';
-import { useState } from 'react'; //Import moment.js and russian locale from library
 
 moment.locale('ru');
 window.moment = moment;
 
-let weekdays = moment.weekdays(true); //change weekdays in europe-like version
+const weekdays = moment.weekdays(true); // change weekdays in europe-like version
 
 /**
  * Main function of my application
  */
-function Index() {
+const Index = () => {
   const [today, setToday] = useState(moment());
   const [month, setMonth] = useState(today.format('MMMM'));
 
@@ -37,6 +36,6 @@ function Index() {
       <CalendarGrid startDay={startDay} endDay={endDay} today={today} />
     </div>
   );
-}
+};
 
 export default Index;

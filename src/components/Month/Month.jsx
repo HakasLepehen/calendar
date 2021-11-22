@@ -17,11 +17,11 @@ const Month = ({ ...props }) => {
   };
   return (
     <div className={classes.month}>
-      <button onClick={prevMonth}>
+      <button type="button" onClick={prevMonth}>
         <span className="material-icons">navigate_before</span>
       </button>
       <span className={classes.monthName}>{props.nameMonth}</span>
-      <button onClick={nextMonth}>
+      <button type="button" onClick={nextMonth}>
         <span className="material-icons">navigate_next</span>
       </button>
     </div>
