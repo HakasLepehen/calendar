@@ -6,7 +6,7 @@
     font-size: 16px;
     font-weight: 500;
     height: calc(20% - 5px);
-    line-height: 18px;
+    line-height: 20px;
     margin-bottom: 2px;
     padding: 0 10px;
     text-align: left;
@@ -18,19 +18,25 @@
     align-items: center;
 }
 
-.shift .label {}
-
-.shift .delete {
-    display: none;
+.shift:hover,
+.shift .delete:hover {
+    cursor: pointer;
 }
 
-.shift:hover {
-    cursor: pointer;
+.shift .delete {
+    background-color: cornflowerblue;
+    border: none;
+    display: none;
+    padding: 0;
+}
+
+.shift .delete:hover {
+    display: flex;
 }
 
 .shift:hover .delete {
     color: red;
-    display: block;
-    font-size: 18px;
-    line-height: 18px;
+    display: flex;
+    font-size: 20px;
+    line-height: 20px;
 }

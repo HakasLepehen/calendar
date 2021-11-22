@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import WeekDay from '../WeekDay/WeekDay';
 import classes from './Weekdays.module.css';

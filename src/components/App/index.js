@@ -21,9 +21,6 @@ const Index = () => {
   const [today, setToday] = useState(moment());
   const [month, setMonth] = useState(today.format('MMMM'));
 
-  console.log('today is', today);
-  console.log('month is ', month);
-
   // get range of days in this month
   const startDay = moment(today).startOf('month').startOf('week');
   const endDay = moment(today).endOf('month');

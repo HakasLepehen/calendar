@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
+import { v4 as uuidv4 } from 'uuid';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
@@ -13,16 +14,19 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
       while (moment(day).isBefore(startMonth)) {
         console.log('day are ', day);
         totalDays.push({
+          id: uuidv4(),
           thisMonth: false,
-
-          day: day.clone().format('D MMM'),
+          day: day.format('D MMM'),
+          month: day.format('MM'),
           shifts: ['Белозеров Сергей', 'Поляк Степан'],
         });
         day.add(1, 'day');
       }
       totalDays.push({
+        id: uuidv4(),
         thisMonth: true,
         day: day.format('D MMM'),
+        month: day.format('M'),
         fullday: moment(day),
         shifts: ['Белозеров Сергей', 'Поляк Степан', 'Белозеров Сергей', 'Поляк Степан'],
       });
@@ -35,8 +39,8 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
 
   return (
     <div className={classes.wrapper}>
-      {totalDays.map((dayObj, index) => (
-        <Day day={dayObj} key={index} />
+      {totalDays.map((dayObj) => (
+        <Day day={dayObj} key={dayObj.id} />
       ))}
     </div>
   );
