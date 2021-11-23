@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
@@ -9,6 +9,27 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
 
+  let [shifts, setShifts] = useState([
+    {
+      id: uuidv4(),
+      employee: 'Поляк Степан',
+      month: 11,
+      day: '29',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Белозеров Сергей',
+      month: 11,
+      day: '25',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 11,
+      day: '1',
+    },
+  ]);
+
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {
       while (moment(day).isBefore(startMonth)) {
@@ -18,7 +39,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
           thisMonth: false,
           day: day.format('D MMM'),
           month: day.format('MM'),
-          shifts: ['Белозеров Сергей', 'Поляк Степан'],
+          shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
         });
         day.add(1, 'day');
       }
@@ -28,11 +49,10 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
         day: day.format('D MMM'),
         month: day.format('M'),
         fullday: moment(day),
-        shifts: ['Белозеров Сергей', 'Поляк Степан', 'Белозеров Сергей', 'Поляк Степан'],
+        shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
       });
       day.add(1, 'day');
     }
-    console.log(totalDays);
   };
 
   calculateDays();
