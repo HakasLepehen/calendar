@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import 'react-router';
+import Main from '../pages/Main.jsx';
 import * as moment from 'moment';
-
-// Import self-made components
-import Month from '../Month/Month';
-import CalendarGrid from '../CalendarGrid/CalendarGrid';
-import Weekdays from '../WeekDays/WeekDays';
 // Import moment.js and russian locale from library
 import 'moment/locale/ru';
 
@@ -18,21 +16,44 @@ const weekdays = moment.weekdays(true); // change weekdays in europe-like versio
  * Main function of my application
  */
 const Index = () => {
-  const [today, setToday] = useState(moment());
-  const [month, setMonth] = useState(today.format('MMMM'));
-
-  // get range of days in this month
-  const startDay = moment(today).startOf('month').startOf('week');
-  const endDay = moment(today).endOf('month');
-
   return (
-    <div className="App">
-      <Month nameMonth={month} setToday={setToday} setMonth={setMonth} today={today} />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <Weekdays week={weekdays} />
-      <CalendarGrid startDay={startDay} endDay={endDay} today={today} />
-    </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
 
 export default Index;
