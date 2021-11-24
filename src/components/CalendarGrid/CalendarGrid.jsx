@@ -28,6 +28,12 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
       month: 11,
       day: '1',
     },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 12,
+      day: '1',
+    },
   ]);
 
   const calculateDays = () => {
@@ -39,7 +45,12 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
           thisMonth: false,
           day: day.format('D MMM'),
           month: day.format('MM'),
-          shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
+          shifts: shifts.filter((shift) => {
+            if (shift.month == moment(day).format('M')) {
+              return shift.day == moment(day).format('D');
+            }
+          }),
+          // shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
         });
         day.add(1, 'day');
       }
@@ -49,11 +60,18 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
         day: day.format('D MMM'),
         month: day.format('M'),
         fullday: moment(day),
-        shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
+        shifts: shifts.filter((shift) => {
+          if (shift.month == moment(day).format('M')) {
+            return shift.day == moment(day).format('D');
+          }
+        }),
+        // shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
       });
       day.add(1, 'day');
     }
   };
+
+  console.log(moment().format('M'));
 
   calculateDays();
 
