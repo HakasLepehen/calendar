@@ -13,9 +13,9 @@
 
 .label {
     color: inherit;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 18px;
+    line-height: 16px;
     height: calc(20% - 5px);
     padding: 4px 10px;
     margin-bottom: 2px;
@@ -23,11 +23,11 @@
 }
 
 .todayLabel {
-    border: 2px solid red;
+    text-decoration: underline double red;
     display: inline-block;
     border-radius: 2px;
-    padding: 0 10px;
     box-sizing: initial;
+
 }
 
 

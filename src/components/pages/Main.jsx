@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classes from './Main.module.css';
 import * as moment from 'moment';
 
 // Import self-made components
@@ -17,7 +18,7 @@ export default function Main() {
   const endDay = moment(today).endOf('month');
 
   return (
-    <div className="Main">
+    <div className={classes.Main}>
       <Month nameMonth={month} setToday={setToday} setMonth={setMonth} today={today} />
 
       <Weekdays week={weekdays} />

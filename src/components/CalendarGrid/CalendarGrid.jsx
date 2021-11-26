@@ -31,6 +31,12 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
     {
       id: uuidv4(),
       employee: 'Гуров Павел',
+      month: 11,
+      day: '24',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
       month: 12,
       day: '1',
     },
@@ -39,7 +45,6 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {
       while (moment(day).isBefore(startMonth)) {
-        console.log('day are ', day);
         totalDays.push({
           id: uuidv4(),
           thisMonth: false,
@@ -50,7 +55,6 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
               return shift.day == moment(day).format('D');
             }
           }),
-          // shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
         });
         day.add(1, 'day');
       }
@@ -65,13 +69,10 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
             return shift.day == moment(day).format('D');
           }
         }),
-        // shifts: shifts.filter((shift) => shift.day == moment(day).format('D')),
       });
       day.add(1, 'day');
     }
   };
-
-  console.log(moment().format('M'));
 
   calculateDays();
 

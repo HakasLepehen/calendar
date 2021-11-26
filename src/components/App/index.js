@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import 'react-router';
 import Main from '../pages/Main.jsx';
+import Admin from '../pages/Admin';
+import Moderation from '../pages/Moderation';
 import * as moment from 'moment';
 // Import moment.js and russian locale from library
 import 'moment/locale/ru';
@@ -19,41 +21,30 @@ const Index = () => {
   return (
     <Router>
       <div>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/moderation" element={<Moderation />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">На главную</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/moderation">Изменить</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/admin">Администратору</Link>
             </li>
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/users" element={<Users />} />
-        </Routes>
       </div>
     </Router>
   );
 };
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 export default Index;
