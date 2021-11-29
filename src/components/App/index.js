@@ -7,6 +7,7 @@ import Moderation from '../pages/Moderation';
 import * as moment from 'moment';
 // Import moment.js and russian locale from library
 import 'moment/locale/ru';
+import Navbar from '../UI/Navbar';
 
 moment.locale('ru');
 window.moment = moment;
@@ -20,7 +21,7 @@ const Index = () => {
   //тут я получаю извне данные по правам пользователя и задаю свои права на чтение и редактирование
   const user = {
     isAdmin: true,
-    isModerator: true,
+    isModerator: false,
   };
 
   if (user.isAdmin) {
@@ -31,19 +32,7 @@ const Index = () => {
           <Route path="/moderation" element={<Moderation />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">На главную</Link>
-            </li>
-            <li>
-              <Link to="/moderation">Изменить</Link>
-            </li>
-            <li>
-              <Link to="/admin">Администратору</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
       </Router>
     );
   }
@@ -56,21 +45,18 @@ const Index = () => {
           <Route path="/moderation" element={<Moderation />} />
           <Route path="/admin" element={<div>У Вас нет доступа к этому URL</div>} />
         </Routes>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">На главную</Link>
-            </li>
-            <li>
-              <Link to="/moderation">Изменить</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
       </Router>
     );
   }
 
-  return <Main />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default Index;
