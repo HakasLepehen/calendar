@@ -51,7 +51,11 @@ const Index = () => {
   }
 
   return (
-    <Router>
+    <Router
+      style={{
+        maxHeight: '100%',
+      }}
+    >
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>

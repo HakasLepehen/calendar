@@ -1,0 +1,15 @@
+.wrapper {
+  height: 100vh;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 200px;
+}
+
+.block h3 {
+  padding: 1em 2.5em;
+}

@@ -5,7 +5,11 @@ import Index from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <Index
+      style={{
+        height: '100vh',
+      }}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

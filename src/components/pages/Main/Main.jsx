@@ -18,7 +18,7 @@ export default function Main() {
   const endDay = moment(today).endOf('month');
 
   return (
-    <div className={classes.Main}>
+    <div className={classes.main}>
       <Month nameMonth={month} setToday={setToday} setMonth={setMonth} today={today} />
 
       <Weekdays week={weekdays} />
