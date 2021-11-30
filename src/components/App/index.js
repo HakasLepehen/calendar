@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Main from '../pages/Main.jsx';
+import Main from '../pages/Main/Main.jsx';
 import Admin from '../pages/Admin';
-import Moderation from '../pages/Moderation';
+import Moderation from '../pages/Moderation/Moderation.jsx';
 import * as moment from 'moment';
 // Import moment.js and russian locale from library
 import 'moment/locale/ru';

@@ -3,9 +3,9 @@ import classes from './Main.module.css';
 import * as moment from 'moment';
 
 // Import self-made components
-import Month from '../Month/Month';
-import CalendarGrid from '../CalendarGrid/CalendarGrid';
-import Weekdays from '../WeekDays/WeekDays';
+import Month from '../../Month/Month';
+import CalendarGrid from '../../CalendarGrid/CalendarGrid';
+import Weekdays from '../../WeekDays/WeekDays';
 
 const weekdays = moment.weekdays(true); // change weekdays in europe-like version
 

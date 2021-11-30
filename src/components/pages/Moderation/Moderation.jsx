@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './Main.jsx';
+import Main from '../Main/Main.jsx';
 
 export default function Moderation() {
   return (
