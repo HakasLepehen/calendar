@@ -40,6 +40,30 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
       month: 12,
       day: '1',
     },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 12,
+      day: '1',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 12,
+      day: '1',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 12,
+      day: '1',
+    },
+    {
+      id: uuidv4(),
+      employee: 'Гуров Павел',
+      month: 12,
+      day: '1',
+    },
   ]);
 
   const calculateDays = () => {

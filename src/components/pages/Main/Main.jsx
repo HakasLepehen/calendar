@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import classes from './Main.module.css';
 import * as moment from 'moment';
+// Import moment.js and russian locale from library
+import 'moment/locale/ru';
 
 // Import self-made components
 import Month from '../../Month/Month';
 import CalendarGrid from '../../CalendarGrid/CalendarGrid';
 import Weekdays from '../../WeekDays/WeekDays';
 
+moment.locale('ru');
 const weekdays = moment.weekdays(true); // change weekdays in europe-like version
 
 export default function Main() {

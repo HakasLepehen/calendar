@@ -5,7 +5,6 @@ import ShiftList from '../ShiftList/ShiftList';
 const Day = ({ day }) => {
   // If the day is not from the current month
   if (!day.thisMonth) {
-    console.log({ ...day });
     return (
       <div className={classes.inactiveDay}>
         <div className={classes.label}>{day.day}</div>

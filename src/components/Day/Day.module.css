@@ -16,7 +16,7 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
-    height: calc(20% - 5px);
+    /* height: calc(20%); */
     padding: 4px 10px;
     margin-bottom: 2px;
     text-align: right;

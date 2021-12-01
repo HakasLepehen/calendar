@@ -5,14 +5,10 @@ import Main from '../pages/Main/Main.jsx';
 import Admin from '../pages/Admin';
 import Moderation from '../pages/Moderation/Moderation.jsx';
 import * as moment from 'moment';
-// Import moment.js and russian locale from library
-import 'moment/locale/ru';
+
 import Navbar from '../UI/Navbar';
 
-moment.locale('ru');
-window.moment = moment;
-
-const weekdays = moment.weekdays(true); // change weekdays in europe-like version
+window.moment = moment; // change weekdays in europe-like version
 
 /**
  * Main function of my application
