@@ -4,12 +4,13 @@ import Main from '../Main/Main.jsx';
 import Employees from '../../Employees/Employees';
 
 export default function Moderation() {
-  const [selectedEmployee, setSelectedEmployee] = useState('');
-  console.log('selectedEmployee in parent component ', selectedEmployee);
+  const [selectedEmployee, setSelectedEmployee] = useState();
+
+  console.log(selectedEmployee);
 
   return (
     <div className={classes.wrapper}>
-      <Main />
+      <Main selectedEmployee={selectedEmployee} />
       <div className={classes.block}>
         <h3>Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день</h3>
         <Employees setSelectedEmployee={setSelectedEmployee} />

@@ -4,7 +4,7 @@ import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
 import { v4 as uuidv4 } from 'uuid';
 
-const CalendarGrid = function ({ startDay, endDay, today }) {
+const CalendarGrid = function ({ startDay, endDay, today, selectedEmployee }) {
   const totalDays = [];
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');

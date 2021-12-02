@@ -12,7 +12,7 @@ import Weekdays from '../../WeekDays/WeekDays';
 moment.locale('ru');
 const weekdays = moment.weekdays(true); // change weekdays in europe-like version
 
-export default function Main() {
+export default function Main(selectedEmployee) {
   const [today, setToday] = useState(moment());
   const [month, setMonth] = useState(today.format('MMMM'));
 
@@ -25,7 +25,12 @@ export default function Main() {
       <Month nameMonth={month} setToday={setToday} setMonth={setMonth} today={today} />
 
       <Weekdays week={weekdays} />
-      <CalendarGrid startDay={startDay} endDay={endDay} today={today} />
+      <CalendarGrid
+        startDay={startDay}
+        endDay={endDay}
+        today={today}
+        selectedEmployee={selectedEmployee}
+      />
     </div>
   );
 }
