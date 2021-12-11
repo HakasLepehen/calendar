@@ -6,8 +6,6 @@ import Employees from '../../Employees/Employees';
 export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState();
 
-  console.log(selectedEmployee);
-
   return (
     <div className={classes.wrapper}>
       <Main selectedEmployee={selectedEmployee} />

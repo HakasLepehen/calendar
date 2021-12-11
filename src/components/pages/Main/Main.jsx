@@ -20,6 +20,7 @@ export default function Main(selectedEmployee) {
   const startDay = moment(today).startOf('month').startOf('week');
   const endDay = moment(today).endOf('month');
 
+  console.log('Переданный в MAIN сотрудник', selectedEmployee);
   return (
     <div className={classes.main}>
       <Month nameMonth={month} setToday={setToday} setMonth={setMonth} today={today} />

@@ -21,6 +21,7 @@ export default function Employees({ ...props }) {
       name: 'Поляк Степан',
     },
   ]);
+  console.log('props', props);
 
   function selectingEmployee(event) {
     props.setSelectedEmployee({

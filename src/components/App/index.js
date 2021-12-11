@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Main from '../pages/Main/Main.jsx';
-import Admin from '../pages/Admin';
+import Admin from '../pages/Admin/Admin';
 import Moderation from '../pages/Moderation/Moderation.jsx';
 import * as moment from 'moment';
 
@@ -16,8 +16,8 @@ window.moment = moment; // change weekdays in europe-like version
 const Index = () => {
   //тут я получаю извне данные по правам пользователя и задаю свои права на чтение и редактирование
   const user = {
-    isAdmin: true,
-    isModerator: false,
+    isAdmin: false,
+    isModerator: true,
   };
 
   if (user.isAdmin) {

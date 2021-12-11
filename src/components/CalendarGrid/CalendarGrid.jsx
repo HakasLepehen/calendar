@@ -9,7 +9,7 @@ const CalendarGrid = function ({ startDay, endDay, today, selectedEmployee }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
 
-  console.log('переданный сотрудник', selectedEmployee);
+  // console.log('переданный сотрудник', selectedEmployee);
 
   let [shifts, setShifts] = useState([
     {
