@@ -1,5 +1,5 @@
 const defaultState = {
-  employee: '',
+  employee: {},
 };
 
 export const SELECT_EMPLOYEE = 'SELECT_EMPLOYEE';
@@ -9,7 +9,7 @@ export const selectEmployeeReducer = (state = defaultState, action) => {
     case 'SELECT_EMPLOYEE':
       return {
         ...state,
-        employee: (state.employee = action.employee),
+        employee: action.employee,
       };
     default:
       return state;

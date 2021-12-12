@@ -3,13 +3,13 @@ import moment from 'moment';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
 import { v4 as uuidv4 } from 'uuid';
+import { useLocation } from 'react-router';
 
-const CalendarGrid = function ({ startDay, endDay, today, selectedEmployee }) {
+const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
-
-  // console.log('переданный сотрудник', selectedEmployee);
+  const location = useLocation();
 
   let [shifts, setShifts] = useState([
     {
@@ -100,12 +100,18 @@ const CalendarGrid = function ({ startDay, endDay, today, selectedEmployee }) {
     }
   };
 
+  const displayDay = (day) => {
+    if (location.pathname === '/moderation') {
+      console.log(day);
+    }
+  };
+
   calculateDays();
 
   return (
     <div className={classes.wrapper}>
       {totalDays.map((dayObj) => (
-        <Day day={dayObj} key={dayObj.id} />
+        <Day day={dayObj} displayDay={displayDay} key={dayObj.id} />
       ))}
     </div>
   );

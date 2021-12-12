@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from '../pages/Main/Main.jsx';
 import Admin from '../pages/Admin/Admin';
 import Moderation from '../pages/Moderation/Moderation.jsx';
