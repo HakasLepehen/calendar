@@ -4,7 +4,7 @@ import classes from './Employees.module.css';
 
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { SELECT_EMPLOYEE } from '../../reducers/selectEmployee.js';
+import { SELECT_EMPLOYEE } from '../../reducers/employeeReducer.js';
 
 //In this component should getting array of employees and render them on page
 

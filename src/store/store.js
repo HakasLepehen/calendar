@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import { selectEmployeeReducer } from '../reducers/selectEmployee.js';
+import { employeeReducer } from '../reducers/employeeReducer.js';
+import { shiftReducer } from '../reducers/shiftReducer.js';
 
 const reducer = combineReducers({
-  selectEmployee: selectEmployeeReducer,
+  employeeReducer: employeeReducer,
+  shiftReducer: shiftReducer,
 });
 
 export const store = createStore(

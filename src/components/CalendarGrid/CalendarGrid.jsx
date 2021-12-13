@@ -1,72 +1,20 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import { useLocation } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
 import { v4 as uuidv4 } from 'uuid';
-import { useLocation } from 'react-router';
+import { ADD_SHIFT } from '../../reducers/shiftReducer';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
+  const dispatch = useDispatch();
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
   const location = useLocation();
-
-  let [shifts, setShifts] = useState([
-    {
-      id: uuidv4(),
-      employee: 'Поляк Степан',
-      month: 11,
-      day: '29',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Белозеров Сергей',
-      month: 11,
-      day: '25',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 11,
-      day: '1',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 11,
-      day: '24',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 12,
-      day: '1',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 12,
-      day: '1',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 12,
-      day: '1',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 12,
-      day: '1',
-    },
-    {
-      id: uuidv4(),
-      employee: 'Гуров Павел',
-      month: 12,
-      day: '1',
-    },
-  ]);
+  const employee = useSelector((state) => state.employeeReducer.employee);
+  const shifts = useSelector((state) => state.shiftReducer.shifts);
 
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {
@@ -100,18 +48,31 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
     }
   };
 
-  const displayDay = (day) => {
-    if (location.pathname === '/moderation') {
-      console.log(day);
+  calculateDays();
+
+  const addShift = (day) => {
+    console.log('employee is ', employee);
+    console.log(day.fullday);
+    const newShift = {
+      id: uuidv4(),
+      employee: employee,
+      month: moment(day.fullday).format('M'),
+      day: moment(day.fullday).format('D'),
+    };
+
+    if (location.pathname === '/moderation' && employee) {
+      dispatch({
+        type: ADD_SHIFT,
+        shift: newShift,
+      });
+      console.log(shifts);
     }
   };
-
-  calculateDays();
 
   return (
     <div className={classes.wrapper}>
       {totalDays.map((dayObj) => (
-        <Day day={dayObj} displayDay={displayDay} key={dayObj.id} />
+        <Day day={dayObj} addShift={addShift} key={dayObj.id} />
       ))}
     </div>
   );
