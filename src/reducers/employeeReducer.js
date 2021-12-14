@@ -1,5 +1,5 @@
 const defaultState = {
-  employee: {},
+  employee: null,
 };
 
 export const SELECT_EMPLOYEE = 'SELECT_EMPLOYEE';

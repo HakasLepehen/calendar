@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
 import { v4 as uuidv4 } from 'uuid';
-import { ADD_SHIFT } from '../../reducers/shiftReducer';
+import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
@@ -51,8 +51,6 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   calculateDays();
 
   const addShift = (day) => {
-    console.log('employee is ', employee);
-    console.log(day.fullday);
     const newShift = {
       id: uuidv4(),
       employee: employee,
@@ -60,19 +58,29 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
       day: moment(day.fullday).format('D'),
     };
 
-    if (location.pathname === '/moderation' && employee) {
-      dispatch({
-        type: ADD_SHIFT,
-        shift: newShift,
-      });
-      console.log(shifts);
+    if (location.pathname === '/moderation') {
+      if (employee) {
+        return dispatch({
+          type: ADD_SHIFT,
+          shift: newShift,
+        });
+      }
+      alert('Выберите сотрудника для добавления в график!');
     }
+  };
+
+  const removeShift = (shift) => {
+    console.log('Deleting shift - ', shift);
+    dispatch({
+      type: REMOVE_SHIFT,
+      shift: shift,
+    });
   };
 
   return (
     <div className={classes.wrapper}>
       {totalDays.map((dayObj) => (
-        <Day day={dayObj} addShift={addShift} key={dayObj.id} />
+        <Day day={dayObj} addShift={addShift} key={dayObj.id} removeShift={removeShift} />
       ))}
     </div>
   );

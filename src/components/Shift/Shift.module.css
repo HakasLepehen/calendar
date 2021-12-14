@@ -1,4 +1,5 @@
-.shift {
+.shift,
+.shift_moderable {
     background-color: cornflowerblue;
     border-radius: 5px;
     border: 1px solid blue;
@@ -18,23 +19,24 @@
     align-items: center;
 }
 
-.shift:hover,
-.shift .delete:hover {
+.shift_moderable:hover,
+.shift_moderable .delete:hover {
     cursor: pointer;
 }
 
-.shift .delete {
+.shift .delete,
+.shift_moderable .delete {
     background-color: cornflowerblue;
     border: none;
     display: none;
     padding: 0;
 }
 
-.shift .delete:hover {
+.shift_moderable .delete:hover {
     display: flex;
 }
 
-.shift:hover .delete {
+.shift_moderable:hover .delete {
     color: red;
     display: flex;
     font-size: 20px;
