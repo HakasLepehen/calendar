@@ -1,9 +1,10 @@
 /**
-  * Сomparing the given day with the current day
-  * @param {Object} day 
+  * Сomparing given day with the current day
+  * @param {Object} 
+  * moment object of day 
   * @returns 
   {boolean} If given day is same or before today calling alert and return false
-  else returns true
+  else true
   */
 export const checkDay = (day) => {
   if (day.isSameOrBefore(window.moment())) {

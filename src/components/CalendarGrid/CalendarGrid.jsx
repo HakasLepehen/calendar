@@ -4,9 +4,10 @@ import { useLocation } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
+import { checkDay } from '../../utils/checkers';
+
 import { v4 as uuidv4 } from 'uuid';
 import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
-import { checkDay } from '../../utils/checkers';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
@@ -14,7 +15,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
   const location = useLocation();
-  const employee = useSelector((state) => state.employeeReducer.employee);
+  const selectedEmployee = useSelector((state) => state.employeeReducer.employee);
   const shifts = useSelector((state) => state.shiftReducer.shifts);
 
   const calculateDays = () => {
@@ -52,18 +53,24 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   calculateDays();
 
   const addShift = (day) => {
+    const employeesInShiftList = day.shifts.map((shift) => shift.employee);
     const newShift = {
       id: uuidv4(),
-      employee: employee,
+      employee: selectedEmployee,
       month: moment(day.fullday).format('M'),
       day: moment(day.fullday).format('D'),
     };
 
     if (location.pathname === '/moderation') {
-      if (checkDay(day.fullday))
-        employee
-          ? dispatch({ type: ADD_SHIFT, shift: newShift })
-          : alert('Выберите сотрудника для добавления в график!');
+      if (selectedEmployee) {
+        if (checkDay(day.fullday))
+          employeesInShiftList.includes(selectedEmployee)
+            ? alert('Невозможно добавить две смены одному специалисту в один день!')
+            : dispatch({ type: ADD_SHIFT, shift: newShift });
+
+        return;
+      }
+      alert('Выберите сотрудника для добавления в график!');
     }
   };
 
