@@ -6,6 +6,7 @@ import classes from './CalendarGrid.module.css';
 import Day from '../Day/Day';
 import { v4 as uuidv4 } from 'uuid';
 import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
+import { checkDay } from '../../utils/checkers';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
@@ -59,13 +60,10 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
     };
 
     if (location.pathname === '/moderation') {
-      if (employee) {
-        return dispatch({
-          type: ADD_SHIFT,
-          shift: newShift,
-        });
-      }
-      alert('Выберите сотрудника для добавления в график!');
+      if (checkDay(day.fullday))
+        employee
+          ? dispatch({ type: ADD_SHIFT, shift: newShift })
+          : alert('Выберите сотрудника для добавления в график!');
     }
   };
 

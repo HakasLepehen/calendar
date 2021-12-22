@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Employee from '../Employee/Employee';
 import classes from './Employees.module.css';
 
@@ -24,6 +24,15 @@ export default function Employees({ ...props }) {
       name: 'Поляк Степан',
     },
   ]);
+
+  useEffect(() => {
+    return () => {
+      dispatch({
+        type: SELECT_EMPLOYEE,
+        employee: null,
+      });
+    };
+  }, []);
 
   function selectingEmployee(event) {
     dispatch({
