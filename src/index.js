@@ -6,14 +6,14 @@ import './index.css';
 import Index from './components/App';
 
 // const authLink =
-//   'https://domain.ru/oauth/authorize/?client_id=app.573ad8a0346747.09223434&state=JJHgsdgfkdaslg7lbadsfg';
+//   'https://domain.ru/oauth/authorize/?client_id=yourAppCode';
 //кидаешь запрос сюда подставляя код приложения, затем резко кидаешь сюда заменяя все переменные
 
 // https://oauth.bitrix.info/oauth/token/?
 //     grant_type=authorization_code
-//     &client_id=app.573ad8a0346747.09223434
-//     &client_secret=LJSl0lNB76B5YY6u0YVQ3AW0DrVADcRTwVr4y99PXU1BWQybWK
-//     &code=avmocpghblyi01m3h42bljvqtyd19sw1
+//     &client_id=YOUR_CLIENT_ID
+//     &client_secret=YOUR_CLIENT_SECRET
+//     &code=YOUR TOKEN
 
 ReactDOM.render(
   <React.StrictMode>
