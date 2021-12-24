@@ -1,9 +1,6 @@
 import React from 'react';
 import classes from './Month.module.css';
-
-// const Month = ({nameMonth, today, setToday, setMonth}) => {
 const Month = ({ ...props }) => {
-  console.log('Given props.name is ', props);
   const nextMonth = (e) => {
     e.stopPropagation();
     props.setToday(props.today.add(1, 'month'));

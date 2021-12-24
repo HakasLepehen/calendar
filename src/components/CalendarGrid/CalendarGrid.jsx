@@ -77,7 +77,6 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   };
 
   const removeShift = (shift) => {
-    console.log('Deleting shift - ', shift);
     dispatch({
       type: REMOVE_SHIFT,
       shift: shift,
