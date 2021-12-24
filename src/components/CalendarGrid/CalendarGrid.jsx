@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import moment from 'moment';
 import { useLocation } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import { checkDay } from '../../utils/checkers';
 
 import { v4 as uuidv4 } from 'uuid';
 import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
+import { Context } from '../../context/Context';
 
 const CalendarGrid = function ({ startDay, endDay, today }) {
   const totalDays = [];
@@ -15,7 +16,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
   const location = useLocation();
-  const selectedEmployee = useSelector((state) => state.employeeReducer.employee);
+  const [selectedEmployee] = useContext(Context);
   const shifts = useSelector((state) => state.shiftReducer.shifts);
 
   const calculateDays = () => {
@@ -54,6 +55,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
 
   const addShift = (day) => {
     const employeesInShiftList = day.shifts.map((shift) => shift.employee);
+
     const newShift = {
       id: uuidv4(),
       employee: selectedEmployee,

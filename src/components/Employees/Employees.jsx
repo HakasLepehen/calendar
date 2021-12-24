@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Employee from '../Employee/Employee';
 import classes from './Employees.module.css';
+import { Context } from '../../context/Context.js';
 
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
-import { SELECT_EMPLOYEE } from '../../reducers/employeeReducer.js';
 
 //In this component should getting array of employees and render them on page
 
-export default function Employees({ ...props }) {
-  const dispatch = useDispatch();
-  const [employees, setEmployees] = useState([
+export default function Employees() {
+  const [, setSelectedEmployee] = useContext(Context);
+
+  const [employees] = useState([
     {
       id: uuidv4(),
       name: 'Гуров Павел',
@@ -25,25 +25,18 @@ export default function Employees({ ...props }) {
     },
   ]);
 
-  useEffect(() => {
-    return () => {
-      dispatch({
-        type: SELECT_EMPLOYEE,
-        employee: null,
-      });
-    };
-  }, []);
-
   function selectingEmployee(event) {
-    dispatch({
-      type: SELECT_EMPLOYEE,
-      employee: { id: event.target.id, name: event.target.value },
+    event.stopPropagation();
+
+    setSelectedEmployee({
+      id: event.target.id,
+      name: event.target.value,
     });
   }
   return (
-    <div className={classes.employees} onChange={selectingEmployee}>
+    <div className={classes.employees}>
       {employees.map((employee) => (
-        <Employee employee={employee} key={employee.id} />
+        <Employee employee={employee} key={employee.id} selectingEmployee={selectingEmployee} />
       ))}
     </div>
   );
