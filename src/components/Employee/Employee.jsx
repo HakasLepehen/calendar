@@ -9,7 +9,7 @@ export default function Employee({ employee, selectingEmployee }) {
         value={employee.name}
         name="employee"
         id={employee.id}
-        onClick={selectingEmployee}
+        onClick={(event) => selectingEmployee(event)}
       />
       <span>{employee.name}</span>
     </label>
