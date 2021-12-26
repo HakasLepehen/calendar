@@ -16,8 +16,10 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
   const location = useLocation();
-  const [selectedEmployee] = useContext(Context);
+  const context = useContext(Context);
   const shifts = useSelector((state) => state.shiftReducer.shifts);
+
+  console.log(typeof context);
 
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {
@@ -55,6 +57,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
 
   const addShift = (day) => {
     const employeesInShiftList = day.shifts.map((shift) => shift.employee);
+    const [selectedEmployee] = context;
 
     const newShift = {
       id: uuidv4(),
