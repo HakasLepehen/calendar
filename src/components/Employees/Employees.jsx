@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 //In this component should getting array of employees and render them on page
 
 export default function Employees() {
-  const [, setSelectedEmployee] = useContext(Context);
+  const { setSelectedEmployee } = useContext(Context);
 
   const [employees] = useState([
     {

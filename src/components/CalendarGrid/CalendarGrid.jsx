@@ -16,8 +16,10 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const day = startDay.clone();
   const startMonth = today.clone().startOf('month');
   const location = useLocation();
-  const [selectedEmployee] = useContext(Context);
+  const { selectedEmployee } = useContext(Context);
   const shifts = useSelector((state) => state.shiftReducer.shifts);
+
+  console.log('selectedEmployee', selectedEmployee);
 
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {

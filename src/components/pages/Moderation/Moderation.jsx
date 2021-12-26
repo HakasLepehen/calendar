@@ -9,7 +9,7 @@ export default function Moderation() {
 
   return (
     <div className={classes.wrapper}>
-      <Context.Provider value={[selectedEmployee, setSelectedEmployee]}>
+      <Context.Provider value={{ selectedEmployee, setSelectedEmployee }}>
         <Main />
         <div className={classes.block}>
           <h3>Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день</h3>
