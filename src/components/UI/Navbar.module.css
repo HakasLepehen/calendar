@@ -16,7 +16,7 @@
   width: 200px;
 }
 
-.nav_button {
+nav ul li a {
   background: -moz-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
   background: -webkit-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
   background: linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
@@ -33,7 +33,7 @@
   text-transform: uppercase;
 }
 
-.nav_button:hover {
+nav ul li a:hover {
   background: #fff;
   border: 1px inset #5a86d8;
   color: cornflowerblue;

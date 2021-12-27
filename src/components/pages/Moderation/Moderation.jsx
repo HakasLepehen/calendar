@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Moderation.module.css';
 import Main from '../Main/Main.jsx';
 import Employees from '../../Employees/Employees';
@@ -9,19 +9,20 @@ import { useLocation } from 'react-router-dom';
 export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const location = useLocation();
-  const buttons = document.querySelectorAll('.nav_button');
-  // const shifts = useSelector((state) => state.shiftReducer.shifts);
-  // const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
+  const shifts = useSelector((state) => state.shiftReducer.shifts);
+  const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
 
-  console.log(buttons);
-  buttons.forEach((button) => {
-    console.log('Getting buttons', ...buttons);
-    button.addEventListener('click', (event) => {
-      console.log('button', button);
-      if (location.pathname === '/moderation') {
-        console.log('Leaving page!');
-      }
+  useEffect(() => {
+    const buttons = document.querySelectorAll('.nav_button');
+    console.log('Beginning effect');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        console.log('переходим на другую страницу1', shifts);
+        console.log('переходим на другую страницу2', tempShifts);
+      });
     });
+    console.log('ending effect');
   });
 
   return (

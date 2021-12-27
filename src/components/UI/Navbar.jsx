@@ -10,7 +10,7 @@ export default function Navbar() {
       <ul className={classes.menu}>
         {location.pathname !== '/' ? (
           <li>
-            <Link to="/" className={classes.nav_button}>
+            <Link to="/" className={'nav_button'}>
               На главную
             </Link>
           </li>
@@ -18,7 +18,7 @@ export default function Navbar() {
 
         {location.pathname !== '/moderation' ? (
           <li>
-            <Link to="/moderation" className={classes.nav_button}>
+            <Link to="/moderation" className={'nav_button'}>
               Изменить график
             </Link>
           </li>
@@ -26,7 +26,7 @@ export default function Navbar() {
 
         {location.pathname !== '/admin' ? (
           <li>
-            <Link to="/admin" className={classes.nav_button}>
+            <Link to="/admin" className={'nav_button'}>
               Управление
             </Link>
           </li>
