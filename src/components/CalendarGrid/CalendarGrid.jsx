@@ -25,35 +25,28 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
     }
   });
 
+  const addDay = (day, isThisMonth = true) => {
+    totalDays.push({
+      id: uuidv4(),
+      thisMonth: isThisMonth,
+      day: day.format('D MMM'),
+      month: day.format('MM'),
+      fullday: moment(day),
+      shifts: shifts.filter((shift) => {
+        if (shift.month == moment(day).format('M')) {
+          return shift.day == moment(day).format('D');
+        }
+      }),
+    });
+    day.add(1, 'day');
+  };
+
   const calculateDays = () => {
     while (day.isSameOrBefore(endDay)) {
       while (moment(day).isBefore(startMonth)) {
-        totalDays.push({
-          id: uuidv4(),
-          thisMonth: false,
-          day: day.format('D MMM'),
-          month: day.format('MM'),
-          shifts: shifts.filter((shift) => {
-            if (shift.month == moment(day).format('M')) {
-              return shift.day == moment(day).format('D');
-            }
-          }),
-        });
-        day.add(1, 'day');
+        addDay(day, false);
       }
-      totalDays.push({
-        id: uuidv4(),
-        thisMonth: true,
-        day: day.format('D MMM'),
-        month: day.format('M'),
-        fullday: moment(day),
-        shifts: shifts.filter((shift) => {
-          if (shift.month == moment(day).format('M')) {
-            return shift.day == moment(day).format('D');
-          }
-        }),
-      });
-      day.add(1, 'day');
+      addDay(day);
     }
   };
 
