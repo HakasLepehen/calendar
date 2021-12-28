@@ -4,25 +4,26 @@ import Main from '../Main/Main.jsx';
 import Employees from '../../Employees/Employees';
 import { Context } from '../../../context/Context.js';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 
 export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const location = useLocation();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
   const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
 
   useEffect(() => {
     const buttons = document.querySelectorAll('.nav_button');
-    console.log('Beginning effect');
 
     buttons.forEach((button) => {
       button.addEventListener('click', (event) => {
-        console.log('переходим на другую страницу1', shifts);
-        console.log('переходим на другую страницу2', tempShifts);
+        shifts.forEach((shift) => {
+          if (tempShifts.includes(shift)) {
+            return alert('No');
+          } else {
+            return alert('Yes');
+          }
+        });
       });
     });
-    console.log('ending effect');
   });
 
   return (

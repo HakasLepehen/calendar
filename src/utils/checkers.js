@@ -3,12 +3,8 @@
   * @param {Object} 
   * moment object of day 
   * @returns 
-  {boolean} If given day is same or before today calling alert and return false
-  else true
+  {boolean} If given day is same or before today return false else true
   */
 export const checkDay = (day) => {
-  if (day.isSameOrBefore(window.moment())) {
-    return false;
-  }
-  return true;
+  return day.isSameOrBefore(window.moment()) ? false : true;
 };

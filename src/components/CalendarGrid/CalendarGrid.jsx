@@ -18,11 +18,9 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   const location = useLocation();
   const { selectedEmployee } = useContext(Context);
   const shifts = useSelector((state) => {
-    if (location.pathname === '/moderation') {
-      return state.shiftReducer.tempShifts;
-    } else {
-      return state.shiftReducer.shifts;
-    }
+    return location.pathname === '/moderation'
+      ? state.shiftReducer.tempShifts
+      : state.shiftReducer.shifts;
   });
 
   const addDay = (day, isThisMonth = true) => {
@@ -68,6 +66,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
           employeesInShiftList.includes(selectedEmployee)
             ? alert('Невозможно добавить две смены одному специалисту в один день!')
             : dispatch({ type: ADD_SHIFT, shift: newShift });
+          return;
         }
         alert('Невозможно произвести операцию задним числом!');
         return;
