@@ -8,7 +8,6 @@
   */
 export const checkDay = (day) => {
   if (day.isSameOrBefore(window.moment())) {
-    alert('Невозможно произвести операцию задним числом!');
     return false;
   }
   return true;

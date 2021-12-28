@@ -64,11 +64,12 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
 
     if (location.pathname === '/moderation') {
       if (selectedEmployee) {
-        if (checkDay(day.fullday))
+        if (checkDay(day.fullday)) {
           employeesInShiftList.includes(selectedEmployee)
             ? alert('Невозможно добавить две смены одному специалисту в один день!')
             : dispatch({ type: ADD_SHIFT, shift: newShift });
-
+        }
+        alert('Невозможно произвести операцию задним числом!');
         return;
       }
       alert('Выберите сотрудника для добавления в график!');
