@@ -12,15 +12,15 @@ export default function Employees() {
 
   const [employees] = useState([
     {
-      id: uuidv4(),
+      id: 1,
       name: 'Гуров Павел',
     },
     {
-      id: uuidv4(),
+      id: 2,
       name: 'Белозеров Сергей',
     },
     {
-      id: uuidv4(),
+      id: 3,
       name: 'Поляк Степан',
     },
   ]);
