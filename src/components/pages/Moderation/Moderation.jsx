@@ -3,10 +3,12 @@ import classes from './Moderation.module.css';
 import Main from '../Main/Main.jsx';
 import Employees from '../../Employees/Employees';
 import { Context } from '../../../context/Context.js';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { COPY_SHIFTS, SYNCHRONIZE_ARRAYS } from '../../../reducers/shiftReducer';
 
 export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
   const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
 
@@ -15,16 +17,25 @@ export default function Moderation() {
 
     buttons.forEach((button) => {
       button.addEventListener('click', (event) => {
-        shifts.forEach((shift) => {
-          if (tempShifts.includes(shift)) {
-            return alert('No');
-          } else {
-            return alert('Yes');
+        console.log(event.type);
+        tempShifts.forEach((shift) => {
+          if (!shifts.includes(shift)) {
+            dispatch({
+              type: COPY_SHIFTS,
+              shifts: tempShifts,
+            });
           }
         });
       });
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: SYNCHRONIZE_ARRAYS,
+      shifts: shifts,
+    });
+  }, []);
 
   return (
     <div className={classes.wrapper}>

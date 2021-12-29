@@ -15,8 +15,8 @@ const defaultState = {
 
 export const ADD_SHIFT = 'ADD_SHIFT';
 export const REMOVE_SHIFT = 'REMOVE_SHIFT';
-export const SYNCHRONIZE_ARRAYS = 'SYNCHRONIZE_ARRAYS';
 export const COPY_SHIFTS = 'COPY_SHIFTS';
+export const SYNCHRONIZE_ARRAYS = 'SYNCHRONIZE_ARRAYS';
 
 export const shiftReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -32,15 +32,14 @@ export const shiftReducer = (state = defaultState, action) => {
       };
     case COPY_SHIFTS:
       return {
-        tempShifts: [...action.shifts],
+        ...state,
+        shifts: [...action.shifts],
       };
-    // case SYNCHRONIZE_ARRAYS:
-    //   return {
-    //     ...state,
-    //     shifts: (state) => {
-    //       state.shifts.forEach()
-    //     },
-    //   };
+    case SYNCHRONIZE_ARRAYS:
+      return {
+        ...state,
+        tempShifts: state.shifts,
+      };
     default:
       return state;
   }
