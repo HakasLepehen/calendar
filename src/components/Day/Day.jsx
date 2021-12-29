@@ -2,20 +2,20 @@ import React from 'react';
 import classes from './Day.module.css';
 import ShiftList from '../ShiftList/ShiftList';
 
-const Day = ({ day, addShift, removeShift }) => {
+const Day = ({ day }) => {
   // If the day is not from the current month
   if (!day.thisMonth) {
     return (
       <div className={classes.inactiveDay}>
         <div className={classes.label}>{day.day}</div>
-        <ShiftList shifts={day.shifts} />
+        <ShiftList day={day.fullday} shifts={day.shifts} />
       </div>
     );
   }
 
   // displaying today in calendar
   return (
-    <div className={classes.today} onClick={() => addShift(day)}>
+    <div className={classes.today}>
       <div className={classes.label}>
         {day.day === window.moment().format('D MMM') ? (
           <span className={classes.todayLabel}>{day.day}</span>
@@ -23,7 +23,7 @@ const Day = ({ day, addShift, removeShift }) => {
           `${day.day}`
         )}
       </div>
-      <ShiftList shifts={day.shifts} removeShift={removeShift} />
+      <ShiftList day={day.fullday} shifts={day.shifts} />
     </div>
   );
 };

@@ -8,14 +8,7 @@ const Shift = ({ shift, removeShift }) => {
     return (
       <div className={classes.shift_moderable}>
         <div className={classes.label}>{shift.employee.name}</div>
-        <button
-          className={classes.delete}
-          role="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            removeShift(shift);
-          }}
-        >
+        <button className={classes.delete} role="button" onClick={removeShift(shift)}>
           <span className={`material-icons ${classes.delete}`}>person_remove</span>
         </button>
       </div>
