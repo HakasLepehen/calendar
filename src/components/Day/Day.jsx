@@ -12,21 +12,17 @@ const Day = ({ day, addShift, removeShift }) => {
       </div>
     );
   }
-  // displaying today in calendar
-  if (day.day === window.moment().format('D MMM')) {
-    return (
-      <div className={classes.today} onClick={() => addShift(day)}>
-        <div className={classes.label}>
-          <span className={classes.todayLabel}>{day.day}</span>
-        </div>
-        <ShiftList shifts={day.shifts} removeShift={removeShift} />
-      </div>
-    );
-  }
 
+  // displaying today in calendar
   return (
-    <div className={classes.day} onClick={() => addShift(day)}>
-      <div className={classes.label}>{day.day}</div>
+    <div className={classes.today} onClick={() => addShift(day)}>
+      <div className={classes.label}>
+        {day.day === window.moment().format('D MMM') ? (
+          <span className={classes.todayLabel}>{day.day}</span>
+        ) : (
+          `${day.day}`
+        )}
+      </div>
       <ShiftList shifts={day.shifts} removeShift={removeShift} />
     </div>
   );

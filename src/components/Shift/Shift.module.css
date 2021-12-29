@@ -4,10 +4,10 @@
     border-radius: 5px;
     border: 1px solid blue;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.01em;
     font-weight: 500;
-    height: calc(20% - 5px);
-    line-height: 20px;
+    height: calc(20% + 1.01px);
+    line-height: 1.01em;
     margin-bottom: 2px;
     padding: 0 10px;
     text-align: left;
@@ -39,6 +39,6 @@
 .shift_moderable:hover .delete {
     color: red;
     display: flex;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 1.1em;
+    line-height: 1.1em;
 }

@@ -1,21 +1,22 @@
 .today,
-.day {
+.day,
+.inactiveDay {
     background-color: rgb(203, 240, 255);
     padding: 0 1px;
+    position: relative;
 }
 
 .inactiveDay {
     background-color: rgba(203, 240, 255, 0.5);
     color: rgba(0, 0, 0, 0.5);
-    padding: 0 1px;
 }
 
 
 .label {
     color: inherit;
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 500;
-    line-height: 16px;
+    line-height: 1em;
     /* height: calc(20%); */
     padding: 4px 10px;
     margin-bottom: 2px;

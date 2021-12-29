@@ -51,7 +51,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
   calculateDays();
 
   const addShift = (day) => {
-    const employeesInShiftList = day.shifts.map((shift) => shift.employee);
+    const employeeIdArray = day.shifts.map((shift) => shift.employee.id);
 
     const newShift = {
       id: uuidv4(),
@@ -63,7 +63,7 @@ const CalendarGrid = function ({ startDay, endDay, today }) {
     if (location.pathname === '/moderation') {
       if (selectedEmployee) {
         if (checkDay(day.fullday)) {
-          employeesInShiftList.includes(selectedEmployee)
+          employeeIdArray.includes(selectedEmployee.id)
             ? alert('Невозможно добавить две смены одному специалисту в один день!')
             : dispatch({ type: ADD_SHIFT, shift: newShift });
           return;

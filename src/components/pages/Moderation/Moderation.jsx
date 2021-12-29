@@ -18,7 +18,6 @@ export default function Moderation() {
 
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        console.log('clicked', isChanged);
         if (isChanged) {
           dispatch({
             type: COPY_SHIFTS,

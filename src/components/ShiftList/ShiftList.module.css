@@ -1,3 +1,6 @@
 .shifts {
-  
+  height: calc(100% - 1em - 10px);
+  top: calc(1em + 10px);
+  position: absolute;
+  width: 100%;
 }
