@@ -6,6 +6,7 @@ import classes from './Navbar.module.css';
 export default function Navbar() {
   const location = useLocation();
   const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
+  console.log(location.pathname);
 
   const openModal = () => {
     console.log('Modal Window is opened');
