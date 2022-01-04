@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import classes from './Navbar.module.css';
 
@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   const isHaveChanges = () => {
-    !isChanged ? openModal() : null;
+    isChanged ? openModal() : null;
   };
 
   return (
