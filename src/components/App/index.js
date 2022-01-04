@@ -22,7 +22,7 @@ const Index = () => {
 
   if (user.isAdmin) {
     return (
-      <Router basename="/calendar/">
+      <Router basename="/calendar">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />
@@ -35,7 +35,7 @@ const Index = () => {
 
   if (user.isModerator) {
     return (
-      <Router>
+      <Router basename="/calendar">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />
@@ -48,6 +48,7 @@ const Index = () => {
 
   return (
     <Router
+      basename="/calendar"
       style={{
         maxHeight: '100%',
       }}
