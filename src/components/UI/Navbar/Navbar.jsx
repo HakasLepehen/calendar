@@ -10,6 +10,22 @@ export default function Navbar() {
   const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  console.log('render navbar');
+  function Lin({ id, path, child }) {
+    return (
+      <li onClick={isHaveChanges(event)} id={id}>
+        <Link to={path} className={'nav_button'}>
+          {child}
+        </Link>
+      </li>
+    );
+  }
+  const [links, setLinks] = useState([
+    <Lin key={1} path={'/'} child={'На главную'} />,
+    <Lin key={2} path={'/moderation'} child={'Изменить график'} />,
+    <Lin key={3} path={'/admin'} child={'Управление'} />,
+  ]);
+
   const openModal = () => {
     return <Modal />;
   };
@@ -26,34 +42,12 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <nav className={classes.nav}>
-        <ul className={classes.menu}>
-          {location.pathname !== '/' ? (
-            <li onClick={isHaveChanges(event)}>
-              <Link to="/" className={'nav_button'}>
-                На главную
-              </Link>
-            </li>
-          ) : null}
-
-          {location.pathname !== '/moderation' ? (
-            <li onClick={isHaveChanges(event)}>
-              <Link to="/moderation" className={'nav_button'}>
-                Изменить график
-              </Link>
-            </li>
-          ) : null}
-
-          {location.pathname !== '/admin' ? (
-            <li onClick={isHaveChanges}>
-              <Link to="/admin" className={'nav_button'}>
-                Управление
-              </Link>
-            </li>
-          ) : null}
-        </ul>
-      </nav>
-    </>
+    <nav className={classes.nav}>
+      <ul className={classes.menu}>
+        {links.filter((link) => {
+          return location.pathname !== link.props.path;
+        })}
+      </ul>
+    </nav>
   );
 }
