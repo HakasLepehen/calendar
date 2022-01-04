@@ -1,15 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import classes from './Navbar.module.css';
 
 export default function Navbar() {
   const location = useLocation();
+  const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
+
+  const openModal = () => {
+    console.log('Modal Window is opened');
+  };
+
+  const isHaveChanges = () => {
+    !isChanged ? openModal() : null;
+  };
 
   return (
     <nav className={classes.nav}>
       <ul className={classes.menu}>
         {location.pathname !== '/' ? (
-          <li>
+          <li onClick={isHaveChanges}>
             <Link to="/" className={'nav_button'}>
               На главную
             </Link>
@@ -17,7 +27,7 @@ export default function Navbar() {
         ) : null}
 
         {location.pathname !== '/moderation' ? (
-          <li>
+          <li onClick={isHaveChanges}>
             <Link to="/moderation" className={'nav_button'}>
               Изменить график
             </Link>
@@ -25,7 +35,7 @@ export default function Navbar() {
         ) : null}
 
         {location.pathname !== '/admin' ? (
-          <li>
+          <li onClick={isHaveChanges}>
             <Link to="/admin" className={'nav_button'}>
               Управление
             </Link>

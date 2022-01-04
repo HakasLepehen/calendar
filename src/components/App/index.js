@@ -6,7 +6,7 @@ import Admin from '../pages/Admin/Admin';
 import Moderation from '../pages/Moderation/Moderation.jsx';
 import * as moment from 'moment';
 
-import Navbar from '../UI/Navbar';
+import Navbar from '../UI/Navbar/Navbar.jsx';
 
 window.moment = moment; // change weekdays in europe-like version
 

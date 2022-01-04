@@ -11,22 +11,21 @@ export default function Moderation() {
   const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
   const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
-  const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
 
-  useEffect(() => {
-    const buttons = document.querySelectorAll('.nav_button');
+  // useEffect(() => {
+  //   const buttons = document.querySelectorAll('.nav_button');
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        if (isChanged) {
-          dispatch({
-            type: COPY_SHIFTS,
-            shifts: tempShifts,
-          });
-        }
-      });
-    });
-  }, [tempShifts]);
+  //   buttons.forEach((button) => {
+  //     button.addEventListener('click', () => {
+  //       if (isChanged) {
+  //         dispatch({
+  //           type: COPY_SHIFTS,
+  //           shifts: tempShifts,
+  //         });
+  //       }
+  //     });
+  //   });
+  // }, [tempShifts]);
 
   //copy shifts from /root page in /moderation
   useEffect(() => {
