@@ -22,7 +22,7 @@ const Index = () => {
 
   if (user.isAdmin) {
     return (
-      <Router>
+      <Router basename="/calendar">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />
