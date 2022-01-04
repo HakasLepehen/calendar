@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import classes from './ShiftList.module.css';
 import Shift from '../Shift/Shift';
@@ -8,6 +9,7 @@ import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
 import { Context } from '../../context/Context';
 
 function ShiftList({ day, shifts }) {
+  const location = useLocation();
   const dispatch = useDispatch();
   const { selectedEmployee } = useContext(Context);
 
