@@ -21,25 +21,16 @@ export default function Navbar() {
     );
   }
   const [links, setLinks] = useState([
-    <Lin key={1} path={'/'} child={'На главную'} />,
-    <Lin key={2} path={'/moderation'} child={'Изменить график'} />,
-    <Lin key={3} path={'/admin'} child={'Управление'} />,
+    <Link key={1} to="/" className={'nav_button'}>
+      На главную
+    </Link>,
+    <Link key={2} to={'/moderation'} className={'nav_button'}>
+      Изменить график
+    </Link>,
+    <Link key={3} to={'/admin'} className={'nav_button'}>
+      Управление
+    </Link>,
   ]);
-
-  const openModal = () => {
-    return <Modal />;
-  };
-
-  const isHaveChanges = () => {
-    if (isChanged) {
-      return (event) => {
-        event.stopPropagation();
-        event.preventDefault();
-        openModal();
-      };
-      return;
-    }
-  };
 
   return (
     <nav className={classes.nav}>
