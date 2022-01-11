@@ -4,21 +4,21 @@ import classes from './Modal.module.css';
 
 export default function Modal({ isModalVisible }) {
   return (
-    <div className={classes['popup-overlay']}>
+    <>
       <Popup open={isModalVisible} modal={true} closeOnDocumentClick={false}>
         {(close) => (
-          <div>
+          <div className={classes['window-content']}>
             <h3 className={classes['popup-title']}>Внимание!</h3>
-            <div>Желаете сохранить изменения?</div>
-            <div>
-              <button className="button">Да</button>
-              <button className="button" onClick={close}>
+            <div className={classes.message}>Желаете сохранить изменения?</div>
+            <div className={classes.buttonBlock}>
+              <button className={classes.button}>Да</button>
+              <button className={classes.button} onClick={close}>
                 Нет
               </button>
             </div>
           </div>
         )}
       </Popup>
-    </div>
+    </>
   );
 }

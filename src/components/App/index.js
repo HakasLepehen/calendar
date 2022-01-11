@@ -20,20 +20,20 @@ const user = {
 
 const Index = () => {
   const [isChanged, setIsChanged] = useState(false);
-  const data = useSelector((state) => state.shiftReducer.isChangedData);
   const adminComponent = useMemo(
     () => (user.isAdmin ? <Admin /> : <div>У Вас нет доступа к этому URL</div>),
     [user]
   );
 
-  const isChangedData = (сhanged) => {
-    console.log('data was changed', сhanged);
+  const isChangedData = (changed) => {
+    // if ()
+    changed ? setIsChanged(true) : setIsChanged(false);
   };
 
   if (user.isAdmin || user.isModerator) {
     return (
       <>
-        <Modal isModalVisible={true} />
+        <Modal isModalVisible={isChanged} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />

@@ -23,18 +23,6 @@ export default function Employees() {
       id: 3,
       name: 'Поляк Степан',
     },
-    {
-      id: 1,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 2,
-      name: 'Белозеров Сергей',
-    },
-    {
-      id: 3,
-      name: 'Поляк Степан',
-    },
   ]);
 
   function selectingEmployee(event) {
