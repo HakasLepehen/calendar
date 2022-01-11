@@ -1,7 +1,3 @@
-#root {
-  height: 100vh;
-}
-
 *,
 ::before,
 ::after {
@@ -16,8 +12,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  max-width: 100%;
-  min-height: 100%;
+  position: relative;
+  width: 100%;
 }
 
 code {

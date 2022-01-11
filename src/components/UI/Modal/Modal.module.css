@@ -1,4 +1,4 @@
-popup-content {
+.popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
   width: 50%;
@@ -14,10 +14,13 @@ popup-content {
 }
 
 .popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
 }
-[data-popup="tooltip"].popup-overlay {
-  background: transparent;
+[data-popup="modal"] {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
 }
 .popup-title {
   text-align: center;

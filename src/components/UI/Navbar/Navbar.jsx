@@ -1,33 +1,21 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { checkLocation } from '../../../utils/checkers';
-import Modal from '../Modal/Modal';
 import classes from './Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({ isChangedData }) {
   const location = useLocation();
   const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  console.log('render navbar');
-  function Lin({ id, path, child }) {
-    return (
-      <li onClick={isHaveChanges(event)} id={id}>
-        <Link to={path} className={'nav_button'}>
-          {child}
-        </Link>
-      </li>
-    );
-  }
-  const [links, setLinks] = useState([
-    <Link key={1} to="/" className={'nav_button'}>
+  console.log('state of boolean', isChanged);
+  const [links] = useState([
+    <Link key={1} to="/" onClick={() => isChangedData(isChanged)}>
       На главную
     </Link>,
-    <Link key={2} to={'/moderation'} className={'nav_button'}>
+    <Link key={2} to={'/moderation'} onClick={() => isChangedData(isChanged)}>
       Изменить график
     </Link>,
-    <Link key={3} to={'/admin'} className={'nav_button'}>
+    <Link key={3} to={'/admin'} onClick={() => isChangedData(isChanged)}>
       Управление
     </Link>,
   ]);
@@ -35,9 +23,13 @@ export default function Navbar() {
   return (
     <nav className={classes.nav}>
       <ul className={classes.menu}>
-        {links.filter((link) => {
-          return location.pathname !== link.props.path;
-        })}
+        {links
+          .filter((link) => {
+            return location.pathname !== link.props.to;
+          })
+          .map((element, index) => {
+            return <li key={index}>{element}</li>;
+          })}
       </ul>
     </nav>
   );
