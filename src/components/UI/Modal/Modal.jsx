@@ -3,9 +3,12 @@ import Popup from 'reactjs-popup';
 import Button from '../Button/Button.jsx';
 import classes from './Modal.module.css';
 
-export default function Modal({ isModalVisible }) {
-  const handler = () => {
-    return console.log('1234');
+export default function Modal({ isModalVisible, onClose }) {
+  const closeHandler = (close) => {
+    return () => {
+      close();
+      onClose();
+    };
   };
 
   return (
@@ -17,7 +20,7 @@ export default function Modal({ isModalVisible }) {
             <div className={classes.message}>Желаете сохранить изменения?</div>
             <div className={classes.buttonBlock}>
               <Button classType={'submit'} value={'Да'} />
-              <Button classType={'danger'} value={'Нет'} action={close} />
+              <Button classType={'danger'} value={'Нет'} action={closeHandler(close)} />
             </div>
           </div>
         )}

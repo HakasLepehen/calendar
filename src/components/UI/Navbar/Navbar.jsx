@@ -8,27 +8,20 @@ import classes from './Navbar.module.css';
 export default function Navbar({ isChangedData }) {
   const location = useLocation();
   const isChanged = useSelector((state) => state.shiftReducer.isChangedData);
-  const checkPath = () => {
-    if (location.pathname !== '/') {
-      return isChangedData(isChanged);
-    }
-  };
   const links = useMemo(
     () => [
-      <Link key={1} to="/" onClick={checkPath}>
+      <Link key={1} to="/" onClick={() => isChangedData(isChanged)}>
         На главную
       </Link>,
-      <Link key={2} to={'/moderation'} onClick={checkPath}>
+      <Link key={2} to={'/moderation'} onClick={() => isChangedData(isChanged)}>
         Изменить график
       </Link>,
-      <Link key={3} to={'/admin'} onClick={checkPath}>
+      <Link key={3} to={'/admin'} onClick={() => isChangedData(isChanged)}>
         Управление
       </Link>,
     ],
     [isChanged]
   );
-
-  console.log(location.pathname);
 
   return (
     <nav className={classes.nav}>
