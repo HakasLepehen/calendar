@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import './App.css';
 import * as moment from 'moment';
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import Main from '../pages/Main/Main.jsx';
 import Admin from '../pages/Admin/Admin';
 import Moderation from '../pages/Moderation/Moderation.jsx';
@@ -21,19 +20,18 @@ const user = {
 const Index = () => {
   const [isChanged, setIsChanged] = useState(false);
   const adminComponent = useMemo(
-    () => (user.isAdmin ? <Admin /> : <div>У Вас нет доступа к этому URL</div>),
+    () => (user.isAdmin ? <Admin /> : <div> У Вас нет доступа к этому URL </div>),
     [user]
   );
 
   const isChangedData = (changed) => {
-    // if ()
     changed ? setIsChanged(true) : setIsChanged(false);
   };
 
   if (user.isAdmin || user.isModerator) {
     return (
       <>
-        <Modal isModalVisible={true} />
+        <Modal isModalVisible={isChanged} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />

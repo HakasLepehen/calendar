@@ -27,40 +27,11 @@
 
 .message {
   font-size: 18px;
-  color:rgb(36, 36, 155);
-}
-
-.button {
-  background: -moz-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
-  background: -webkit-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
-  background: linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
-  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 20px;
-  color: #fff;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0.5em 1.5em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
+  color: rgb(36, 36, 155);
 }
 
 .buttonBlock {
   display: flex;
   width: 80%;
   justify-content: space-evenly;
-}
-
-.button:hover {
-  background: rgb(100, 149, 237);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.buttonSubmit {
-  background-color: red;
 }
