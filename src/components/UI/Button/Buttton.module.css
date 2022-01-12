@@ -1,0 +1,42 @@
+.submit,
+.danger {
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 20px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.submit {
+    background: -moz-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
+    background: -webkit-linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
+    background: linear-gradient(45deg, rgb(100, 149, 237), rgb(136, 177, 255), rgb(100, 149, 237));
+}
+
+.submit:hover,
+.danger:hover {
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: rgb(100, 149, 237);
+}
+
+.danger {
+    background: -webkit-linear-gradient(90deg, rgb(255, 0, 0), rgb(253, 151, 151), rgb(255, 0, 0));
+    background: -moz-linear-gradient(90deg, rgb(255, 0, 0), rgb(253, 151, 151), rgb(255, 0, 0));
+    background: linear-gradient(90deg, rgb(255, 0, 0), rgb(253, 151, 151), rgb(255, 0, 0));
+}
+
+.danger:hover {
+    background: rgb(255, 0, 0);
+}

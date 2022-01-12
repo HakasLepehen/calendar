@@ -33,7 +33,7 @@ const Index = () => {
   if (user.isAdmin || user.isModerator) {
     return (
       <>
-        <Modal isModalVisible={isChanged} />
+        <Modal isModalVisible={true} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />
