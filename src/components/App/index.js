@@ -28,10 +28,18 @@ const Index = () => {
     changed ? setIsChanged(true) : setIsChanged(false);
   };
 
+  const closeHandler = () => {
+    return setIsChanged(false);
+  };
+
+  const submitHandler = () => {
+    console.log('Сработал submit!!!!');
+  };
+
   if (user.isAdmin || user.isModerator) {
     return (
       <>
-        <Modal isModalVisible={isChanged} onClose={() => setIsChanged(false)} />
+        <Modal isModalVisible={isChanged} onSubmit={submitHandler} onClose={closeHandler} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/moderation" element={<Moderation />} />

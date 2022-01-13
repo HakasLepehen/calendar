@@ -3,12 +3,16 @@ import Popup from 'reactjs-popup';
 import Button from '../Button/Button.jsx';
 import classes from './Modal.module.css';
 
-export default function Modal({ isModalVisible, onClose }) {
+export default function Modal({ isModalVisible, onSubmit, onClose }) {
   const closeHandler = (close) => {
     return () => {
       close();
       onClose();
     };
+  };
+
+  const submitHandler = () => {
+    return onSubmit();
   };
 
   return (
@@ -19,7 +23,7 @@ export default function Modal({ isModalVisible, onClose }) {
             <h3 className={classes['popup-title']}>Внимание!</h3>
             <div className={classes.message}>Желаете сохранить изменения?</div>
             <div className={classes.buttonBlock}>
-              <Button classType={'submit'} value={'Да'} />
+              <Button classType={'submit'} value={'Да'} action={submitHandler} />
               <Button classType={'danger'} value={'Нет'} action={closeHandler(close)} />
             </div>
           </div>

@@ -2,7 +2,6 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { checkLocation } from '../../../utils/checkers';
 import classes from './Navbar.module.css';
 
 export default function Navbar({ isChangedData }) {
