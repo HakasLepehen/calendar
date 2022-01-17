@@ -12,6 +12,7 @@ export default function Modal({ isModalVisible, onSubmit, onClose }) {
   };
 
   const submitHandler = () => {
+    close();
     return onSubmit();
   };
 

@@ -6,7 +6,7 @@ const defaultState = {
 
 export const ADD_SHIFT = 'ADD_SHIFT';
 export const REMOVE_SHIFT = 'REMOVE_SHIFT';
-export const COPY_SHIFTS = 'COPY_SHIFTS';
+export const SAVE_TEMP_SHIFTS = 'SAVE_TEMP_SHIFTS';
 export const SYNCHRONIZE_ARRAYS = 'SYNCHRONIZE_ARRAYS';
 
 export const shiftReducer = (state = defaultState, action) => {
@@ -23,10 +23,10 @@ export const shiftReducer = (state = defaultState, action) => {
         tempShifts: state.tempShifts.filter((el) => action.shift.id !== el.id),
         isChangedData: true,
       };
-    case COPY_SHIFTS:
+    case SAVE_TEMP_SHIFTS:
       return {
         ...state,
-        shifts: [...action.shifts],
+        shifts: [...state.tempShifts],
         tempShifts: (state.tempShifts = []),
         isChangedData: false,
       };
