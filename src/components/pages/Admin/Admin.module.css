@@ -1,0 +1,23 @@
+.adminBlock {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.content {
+  max-height: 100%;
+  /* overflow-y: scroll; */
+  padding: 0px 10px 20px;
+  margin-top: 20px;
+}
+
+/* .employees {
+  flex-wrap: nowrap;
+} */

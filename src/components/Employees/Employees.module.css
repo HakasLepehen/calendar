@@ -1,10 +1,11 @@
 .employees {
+  align-content: flex-start;
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
   flex: 0 2 50%;
   height: 100%;
   margin: 0;
-  overflow-y: scroll;
   padding: 1.2em 2.5em;
+  overflow-y: scroll;
 }

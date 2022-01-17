@@ -9,7 +9,7 @@ import Moderation from '../pages/Moderation/Moderation.jsx';
 import Modal from '../UI/Modal/Modal';
 
 import Navbar from '../UI/Navbar/Navbar.jsx';
-import { SAVE_TEMP_SHIFTS } from '../../reducers/shiftReducer';
+import { SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../reducers/shiftReducer';
 
 window.moment = moment; // change weekdays in europe-like version
 
@@ -37,11 +37,11 @@ const Index = () => {
   };
 
   const closeHandler = () => {
+    dispatch({ type: RESET_CHANGES });
     return setIsChanged(false);
   };
 
   const submitHandler = () => {
-    console.log('Сработал submit!!!!');
     dispatch({ type: SAVE_TEMP_SHIFTS });
     setIsChanged(false);
   };
