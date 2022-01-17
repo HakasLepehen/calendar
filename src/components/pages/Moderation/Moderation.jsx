@@ -10,7 +10,6 @@ export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
-  const tempShifts = useSelector((state) => state.shiftReducer.tempShifts);
 
   //copy shifts from /root page in /moderation
   useEffect(() => {

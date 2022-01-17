@@ -16,7 +16,7 @@ window.moment = moment; // change weekdays in europe-like version
 //Initialize current user
 const user = {
   isAdmin: true,
-  isModerator: false,
+  isModerator: true,
 };
 
 const Index = () => {
