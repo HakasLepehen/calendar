@@ -9,9 +9,10 @@ export default function Employee({ employee, selectingEmployee }) {
         value={employee.name}
         name="employee"
         id={employee.id}
-        onClick={(event) => selectingEmployee(event)}
+        onClick={selectingEmployee}
       />
-      <span>{employee.name}</span>
+      <span className={classes.employeeName}>{employee.name}</span>
+      <span className={classes.countShifts}>12</span>
     </label>
   );
 }

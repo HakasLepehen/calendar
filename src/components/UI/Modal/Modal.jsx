@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup';
 import Button from '../Button/Button.jsx';
 import classes from './Modal.module.css';
 
+//this component will be further developed in the future
 export default function Modal({ isModalVisible, onSubmit, onClose }) {
   const closeHandler = (close) => {
     return () => {

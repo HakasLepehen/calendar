@@ -4,7 +4,7 @@ import Main from '../Main/Main.jsx';
 import Employees from '../../Employees/Employees';
 import { Context } from '../../../context/Context.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { COPY_SHIFTS, SYNCHRONIZE_ARRAYS } from '../../../reducers/shiftReducer';
+import { SYNCHRONIZE_ARRAYS } from '../../../reducers/shiftReducer';
 
 export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);

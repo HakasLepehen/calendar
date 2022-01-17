@@ -15,15 +15,20 @@ window.moment = moment; // change weekdays in europe-like version
 
 //Initialize current user
 const user = {
-  isAdmin: false,
-  isModerator: true,
+  isAdmin: true,
+  isModerator: false,
 };
 
 const Index = () => {
   const [isChanged, setIsChanged] = useState(false);
   const dispatch = useDispatch();
   const adminComponent = useMemo(
-    () => (user.isAdmin ? <Admin /> : <div> У Вас нет доступа к этому URL </div>),
+    () =>
+      user.isAdmin ? (
+        <Admin />
+      ) : (
+        <h2 style={{ textAlign: 'center' }}> У Вас нет доступа к этой странице </h2>
+      ),
     [user]
   );
 

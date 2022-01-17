@@ -3,8 +3,6 @@ import Employee from '../Employee/Employee';
 import classes from './Employees.module.css';
 import { Context } from '../../context/Context.js';
 
-import { v4 as uuidv4 } from 'uuid';
-
 //In this component should getting array of employees and render them on page
 
 export default function Employees() {
@@ -25,14 +23,14 @@ export default function Employees() {
     },
   ]);
 
-  function selectingEmployee(event) {
+  const selectingEmployee = (event) => {
     event.stopPropagation();
 
     setSelectedEmployee({
       id: event.target.id,
       name: event.target.value,
     });
-  }
+  };
   return (
     <div className={classes.employees}>
       {employees.map((employee) => (
