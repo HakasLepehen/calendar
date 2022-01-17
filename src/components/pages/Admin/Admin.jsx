@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Context } from '../../../context/Context';
 import Employees from '../../Employees/Employees';
 import classes from './Admin.module.css';
@@ -8,7 +8,8 @@ import Button from '../../UI/Button/Button';
 
 export default function Admin() {
   const dispatch = useDispatch();
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const moderator = useSelector((state) => state.moderatorReducer.moderator);
+  const [selectedEmployee, setSelectedEmployee] = useState(moderator);
 
   const add = () => {
     dispatch({
@@ -26,6 +27,10 @@ export default function Admin() {
           <Employees />
         </div>
         <Button classType={'submit'} action={add} value={'Назначить модератором'} />
+        <div className={classes.actualModerator}>
+          <span className={classes.moderatorLabel}>Текущий модератор</span>
+          <span className={classes.moderator}>{moderator.name}</span>
+        </div>
       </Context.Provider>
     </div>
   );

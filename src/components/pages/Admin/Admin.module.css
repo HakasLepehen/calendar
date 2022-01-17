@@ -16,3 +16,19 @@
   padding: 0px 10px 20px;
   margin-top: 20px;
 }
+
+.actualModerator {
+  display: flex;
+  margin-top: 50px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.moderatorLabel {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.moderator {
+  font-size: 18px;
+}
