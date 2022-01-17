@@ -28,7 +28,7 @@ export default function Admin() {
         </div>
         <Button classType={'submit'} action={add} value={'Назначить модератором'} />
         <div className={classes.actualModerator}>
-          <span className={classes.moderatorLabel}>Текущий модератор</span>
+          <span className={classes.moderatorLabel}>Текущий модератор:</span>
           <span className={classes.moderator}>{moderator.name}</span>
         </div>
       </Context.Provider>

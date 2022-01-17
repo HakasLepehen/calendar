@@ -21,30 +21,6 @@ export default function Employees() {
       id: 3,
       name: 'Поляк Степан',
     },
-    {
-      id: 4,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 5,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 6,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 7,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 8,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 9,
-      name: 'Гуров Павел',
-    },
   ]);
 
   const selectingEmployee = (event) => {
