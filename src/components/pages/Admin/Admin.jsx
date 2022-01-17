@@ -17,8 +17,6 @@ export default function Admin() {
       moderator: selectedEmployee,
     });
   };
-
-  console.log(selectedEmployee);
   return (
     <div className={classes.adminBlock}>
       <Context.Provider value={{ selectedEmployee, setSelectedEmployee }}>
