@@ -18,7 +18,7 @@ import Index from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/calendar/">
+    <BrowserRouter>
       <Provider store={store}>
         <Index />
       </Provider>
