@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import * as moment from 'moment';
 import { Routes, Route } from 'react-router-dom';
@@ -13,24 +13,9 @@ import { SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../reducers/shiftReducer';
 
 window.moment = moment; // change weekdays in europe-like version
 
-//Initialize current user
-const user = {
-  isAdmin: true,
-  isModerator: true,
-};
-
 const Index = () => {
   const [isChanged, setIsChanged] = useState(false);
   const dispatch = useDispatch();
-  const adminComponent = useMemo(
-    () =>
-      user.isAdmin ? (
-        <Admin />
-      ) : (
-        <h2 style={{ textAlign: 'center' }}> У Вас нет доступа к этой странице </h2>
-      ),
-    [user]
-  );
 
   const isChangedData = (changed) => {
     changed ? setIsChanged(true) : setIsChanged(false);
@@ -46,21 +31,22 @@ const Index = () => {
     setIsChanged(false);
   };
 
-  if (user.isAdmin || user.isModerator) {
-    return (
-      <>
-        <Modal isModalVisible={isChanged} onSubmit={submitHandler} onClose={closeHandler} />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/moderation" element={<Moderation />} />
-          <Route path="/admin" element={adminComponent} />
-        </Routes>
-        <Navbar isChangedData={isChangedData} />
-      </>
-    );
-  }
+  const checkUser = () => {
+    return (event) => {
+      console.log(event);
+    };
+  };
 
-  return <Main />;
+  return (
+    <>
+      <Modal isModalVisible={isChanged} onSubmit={submitHandler} onClose={closeHandler} />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/moderation" element={<Moderation />} />
+      </Routes>
+      <Navbar isChangedData={isChangedData} checkUser={checkUser} />
+    </>
+  );
 };
 
 export default Index;

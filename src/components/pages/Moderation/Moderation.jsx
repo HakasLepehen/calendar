@@ -11,6 +11,8 @@ export default function Moderation() {
   const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
 
+  window.prompt('Привет!');
+
   //copy shifts from /root page in /moderation
   useEffect(() => {
     dispatch({
@@ -24,7 +26,9 @@ export default function Moderation() {
       <Context.Provider value={{ selectedEmployee, setSelectedEmployee }}>
         <Main />
         <div className={classes.block}>
-          <h3>Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день</h3>
+          <h3>
+            Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день!
+          </h3>
           <Employees />
         </div>
       </Context.Provider>
