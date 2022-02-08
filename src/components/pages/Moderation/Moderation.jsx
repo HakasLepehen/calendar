@@ -7,11 +7,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SYNCHRONIZE_ARRAYS } from '../../../reducers/shiftReducer';
 
 export default function Moderation() {
+  const isAuth = useSelector((state) => state.authReducer.isAuth);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
 
-  window.prompt('Привет!');
+  // useEffect(() => {
+  //   return checkUser();
+  // }, []);
 
   //copy shifts from /root page in /moderation
   useEffect(() => {
@@ -20,18 +23,20 @@ export default function Moderation() {
       shifts: shifts,
     });
   }, []);
-
-  return (
-    <div className={classes.wrapper}>
-      <Context.Provider value={{ selectedEmployee, setSelectedEmployee }}>
-        <Main />
-        <div className={classes.block}>
-          <h3>
-            Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день!
-          </h3>
-          <Employees />
-        </div>
-      </Context.Provider>
-    </div>
-  );
+  if (isAuth) {
+    return (
+      <div className={classes.wrapper}>
+        <Context.Provider value={{ selectedEmployee, setSelectedEmployee }}>
+          <Main />
+          <div className={classes.block}>
+            <h3>
+              Выберите необходимого сотрудника и добавьте ему смены, нажимая на нужный Вам день!
+            </h3>
+            <Employees />
+          </div>
+        </Context.Provider>
+      </div>
+    );
+  }
+  return <></>;
 }

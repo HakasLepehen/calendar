@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Context } from '../../../context/Context';
 import Employees from '../../Employees/Employees';
 import classes from './Admin.module.css';
-import { SET_MODERATOR } from '../../../reducers/moderatorReducer';
+import { SET_MODERATOR } from '../../../reducers/authReducer';
 import Button from '../../UI/Button/Button';
 
 export default function Admin() {
