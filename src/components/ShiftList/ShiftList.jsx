@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import classes from './ShiftList.module.css';
 import Shift from '../Shift/Shift';
-import { ADD_SHIFT, REMOVE_SHIFT } from '../../reducers/shiftReducer';
+import { ADD_SHIFT, REMOVE_SHIFT } from '../../constants/constants.js';
 import { Context } from '../../context/Context';
 
 function ShiftList({ day, shifts }) {

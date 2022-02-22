@@ -3,13 +3,13 @@ import './App.css';
 import * as moment from 'moment';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Main from '../pages/Main/Main.jsx';
-import Moderation from '../pages/Moderation/Moderation.jsx';
+import Main from '../../pages/Main/Main.jsx';
+import Moderation from '../../pages/Moderation/Moderation.jsx';
 import Modal from '../UI/Modal/Modal';
 
 import Navbar from '../UI/Navbar/Navbar.jsx';
-import { SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../reducers/shiftReducer';
-import { SET_AUTH } from '../../reducers/authReducer';
+// import { SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../reducers/shiftReducer';
+import { SET_AUTH, SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../constants/constants.js';
 
 window.moment = moment; // change weekdays in europe-like version
 

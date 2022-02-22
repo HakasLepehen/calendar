@@ -5,9 +5,9 @@ import * as moment from 'moment';
 import 'moment/locale/ru';
 
 // Import self-made components
-import Month from '../../Month/Month';
-import CalendarGrid from '../../CalendarGrid/CalendarGrid';
-import Weekdays from '../../WeekDays/WeekDays';
+import Month from '../../components/Month/Month.jsx';
+import Weekdays from '../../components/WeekDays/WeekDays';
+import CalendarGrid from '../../components/CalendarGrid/CalendarGrid.jsx';
 
 moment.locale('ru');
 const weekdays = moment.weekdays(true); // change weekdays in europe-like version

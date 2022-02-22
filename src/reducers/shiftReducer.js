@@ -1,14 +1,16 @@
+import {
+  ADD_SHIFT,
+  REMOVE_SHIFT,
+  RESET_CHANGES,
+  SAVE_TEMP_SHIFTS,
+  SYNCHRONIZE_ARRAYS,
+} from '../constants/constants';
+
 const defaultState = {
   shifts: [],
   tempShifts: [],
   isChangedData: false,
 };
-
-export const ADD_SHIFT = 'ADD_SHIFT';
-export const REMOVE_SHIFT = 'REMOVE_SHIFT';
-export const SAVE_TEMP_SHIFTS = 'SAVE_TEMP_SHIFTS';
-export const SYNCHRONIZE_ARRAYS = 'SYNCHRONIZE_ARRAYS';
-export const RESET_CHANGES = 'RESET_CHANGES';
 
 export const shiftReducer = (state = defaultState, action) => {
   switch (action.type) {

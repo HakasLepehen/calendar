@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import classes from './Moderation.module.css';
 import Main from '../Main/Main.jsx';
-import Employees from '../../Employees/Employees';
-import { Context } from '../../../context/Context.js';
+import Employees from '../../components/Employees/Employees.jsx';
+import { Context } from '../../context/Context.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { SYNCHRONIZE_ARRAYS } from '../../../reducers/shiftReducer';
+import { SYNCHRONIZE_ARRAYS } from '../../constants/constants.js';
+import { synchronizeShifts } from '../../actions/actions';
 
 export default function Moderation() {
   const isAuth = useSelector((state) => state.authReducer.isAuth);
@@ -18,10 +19,7 @@ export default function Moderation() {
 
   //copy shifts from /root page in /moderation
   useEffect(() => {
-    dispatch({
-      type: SYNCHRONIZE_ARRAYS,
-      shifts: shifts,
-    });
+    dispatch(synchronizeShifts(shifts));
   }, []);
   if (isAuth) {
     return (
