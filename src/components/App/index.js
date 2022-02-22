@@ -8,30 +8,27 @@ import Moderation from '../../pages/Moderation/Moderation.jsx';
 import Modal from '../UI/Modal/Modal';
 
 import Navbar from '../UI/Navbar/Navbar.jsx';
-// import { SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../reducers/shiftReducer';
+import { setAuth, resetChanges, saveTempShifts } from '../../actions/actions.js';
 import { SET_AUTH, SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../constants/constants.js';
 
 window.moment = moment; // change weekdays in europe-like version
 
 const Index = () => {
-  const [isChanged, setIsChanged] = useState(false);
+  const [isChangedShifts, setIsChangedShifts] = useState(false);
   const dispatch = useDispatch();
-  let a = null;
-
-  // console.log(a ===);
 
   const isChangedData = (changed) => {
-    changed ? setIsChanged(true) : setIsChanged(false);
+    changed ? setIsChangedShifts(true) : setIsChangedShifts(false);
   };
 
   const closeHandler = () => {
-    dispatch({ type: RESET_CHANGES });
-    return setIsChanged(false);
+    dispatch(resetChanges());
+    return setIsChangedShifts(false);
   };
 
   const submitHandler = () => {
-    dispatch({ type: SAVE_TEMP_SHIFTS });
-    setIsChanged(false);
+    dispatch(saveTempShifts());
+    setIsChangedShifts(false);
   };
 
   //check password to moderate shifts
@@ -39,16 +36,13 @@ const Index = () => {
     return (event) => {
       const message = window.prompt('Введите пароль');
 
-      message === 'vesnaVseMoget'
-        ? dispatch({ type: SET_AUTH, isAuth: true })
-        : dispatch({ type: SET_AUTH, isAuth: false });
+      message === 'vesnaVseMoget' ? dispatch(setAuth(true)) : dispatch(setAuth(false));
     };
-    // return false;
   };
 
   return (
     <>
-      <Modal isModalVisible={isChanged} onSubmit={submitHandler} onClose={closeHandler} />
+      <Modal isModalVisible={isChangedShifts} onSubmit={submitHandler} onClose={closeHandler} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/moderation" element={<Moderation />} />
