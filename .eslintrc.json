@@ -7,12 +7,13 @@
         "plugin:react/recommended",
         "prettier"
     ],
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2018,
+        "requireConfigFile": false,
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "plugins": [
