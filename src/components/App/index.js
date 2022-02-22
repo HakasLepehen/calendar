@@ -9,7 +9,6 @@ import Modal from '../UI/Modal/Modal';
 
 import Navbar from '../UI/Navbar/Navbar.jsx';
 import { setAuth, resetChanges, saveTempShifts } from '../../actions/actions.js';
-import { SET_AUTH, SAVE_TEMP_SHIFTS, RESET_CHANGES } from '../../constants/constants.js';
 
 window.moment = moment; // change weekdays in europe-like version
 
