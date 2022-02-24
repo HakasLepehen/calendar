@@ -1,10 +1,7 @@
 import { SET_AUTH } from '../constants/constants';
 
 const defaultModerator = {
-  moderator: {
-    id: 1,
-    isAuth: false,
-  },
+  isAuth: false,
 };
 
 export const authReducer = (state = defaultModerator, action) => {

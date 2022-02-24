@@ -7,6 +7,7 @@ import classes from './ShiftList.module.css';
 import Shift from '../Shift/Shift';
 import { ADD_SHIFT, REMOVE_SHIFT } from '../../constants/constants.js';
 import { Context } from '../../context/Context';
+import { addShiftToDay, removeShiftFromDay } from '../../actions/actions.js';
 
 function ShiftList({ day, shifts }) {
   const location = useLocation();
@@ -27,7 +28,7 @@ function ShiftList({ day, shifts }) {
       if (selectedEmployee) {
         employeeIdArray.includes(selectedEmployee.id)
           ? alert('Невозможно добавить две смены одному специалисту в один день!')
-          : dispatch({ type: ADD_SHIFT, shift: newShift });
+          : dispatch(addShiftToDay(newShift));
         return;
       }
       alert('Выберите сотрудника для добавления в график!');
@@ -37,10 +38,7 @@ function ShiftList({ day, shifts }) {
   const removeShift = (shift) => {
     return (event) => {
       event.stopPropagation();
-      dispatch({
-        type: REMOVE_SHIFT,
-        shift: shift,
-      });
+      dispatch(removeShiftFromDay(shift));
     };
   };
 
