@@ -11,7 +11,7 @@ const defaultState = {
 
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case SAVE_USERS:
+    case SAVE_EMPLOYEES:
       return {
         ...state,
         users: action.users,
