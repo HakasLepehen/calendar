@@ -19,7 +19,8 @@
     "plugins": [
         "react",
         "jsx",
-        "prettier"
+        "prettier",
+        "@babel"
     ],
     "rules": {
         "prettier/prettier": "error",
