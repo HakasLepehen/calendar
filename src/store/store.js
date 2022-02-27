@@ -2,14 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
 import { shiftReducer } from '../reducers/shiftReducer.js';
 import { authReducer } from '../reducers/authReducer.js';
-import { userReducer } from '../reducers/userReducer.js';
+import { employeeReducer } from '../reducers/userReducer.js';
 import rootSaga from '../sagas/sagas.js';
 
 const sagaMiddleWare = createSagaMiddleware();
 const reducer = combineReducers({
   shiftReducer: shiftReducer,
   authReducer: authReducer,
-  userReducer: userReducer,
+  employeeReducer: employeeReducer,
 });
 
 const composedEnhancer = compose(

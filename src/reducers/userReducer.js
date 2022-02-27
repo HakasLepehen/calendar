@@ -1,15 +1,10 @@
-import { FETCH_EMPLOYEES, SAVE_EMPLOYEES } from '../constants/constants';
+import { SAVE_EMPLOYEES } from '../constants/constants';
 
 const defaultState = {
-  users: [
-    {
-      id: 0,
-      name: 'Павел Петров',
-    },
-  ],
+  users: [],
 };
 
-export const userReducer = (state = defaultState, action) => {
+export const employeeReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SAVE_EMPLOYEES:
       return {
