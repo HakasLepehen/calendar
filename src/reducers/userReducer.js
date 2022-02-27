@@ -1,4 +1,4 @@
-import { SAVE_EMPLOYEES } from '../constants/constants';
+import { FETCH_EMPLOYEES, SAVE_EMPLOYEES } from '../constants/constants';
 
 const defaultState = {
   users: [

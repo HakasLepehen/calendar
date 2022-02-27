@@ -11,9 +11,6 @@ export default function Moderation() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const dispatch = useDispatch();
   const shifts = useSelector((state) => state.shiftReducer.shifts);
-  const shit = useSelector((state) => state);
-
-  console.log(shit);
 
   // useEffect(() => {
   //   return checkUser();

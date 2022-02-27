@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "prettier"
+        "prettier",
+        "plugin:react/jsx-runtime"
     ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
@@ -17,10 +18,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
         "jsx",
-        "prettier",
-        "@babel"
+        "react",
     ],
     "rules": {
         "prettier/prettier": "error",

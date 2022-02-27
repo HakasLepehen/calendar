@@ -8,6 +8,7 @@ import 'moment/locale/ru';
 import Month from '../../components/Month/Month.jsx';
 import Weekdays from '../../components/WeekDays/WeekDays';
 import CalendarGrid from '../../components/CalendarGrid/CalendarGrid.jsx';
+import { useDispatch } from 'react-redux';
 
 moment.locale('ru');
 const weekdays = moment.weekdays(true); // change weekdays in europe-like version
@@ -15,6 +16,7 @@ const weekdays = moment.weekdays(true); // change weekdays in europe-like versio
 export default function Main() {
   const [today, setToday] = useState(moment());
   const [month, setMonth] = useState(today.format('MMMM'));
+  const dispatch = useDispatch();
 
   // get range of days in this month
   const startDay = moment(today).startOf('month').startOf('week');
