@@ -1,32 +1,28 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["plugin:react/recommended", "plugin:react/jsx-runtime"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaVersion": 12,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
     },
-    "extends": [
-        "plugin:react/recommended",
-        "prettier",
-        "plugin:react/jsx-runtime"
-    ],
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "requireConfigFile": false,
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "jsx",
-        "react",
-    ],
-    "rules": {
-        "prettier/prettier": "error",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/state-in-constructor": "off",
-        "react/prop-types": "off",
-        "react/function-component-definition": 0,
-        "react/no-array-index-key": 1
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "plugins": ["jsx", "react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/state-in-constructor": "off",
+    "react/prop-types": "off",
+    "react/function-component-definition": 0,
+    "react/no-array-index-key": 1
+  }
 }
