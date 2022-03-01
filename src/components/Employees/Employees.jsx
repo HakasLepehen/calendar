@@ -1,27 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Employee from '../Employee/Employee';
 import classes from './Employees.module.css';
 import { Context } from '../../context/Context.js';
+import { useSelector } from 'react-redux';
 
 //In this component should getting array of employees and render them on page
 
 export default function Employees() {
   const { setSelectedEmployee } = useContext(Context);
 
-  const [employees] = useState([
-    {
-      id: 1,
-      name: 'Гуров Павел',
-    },
-    {
-      id: 2,
-      name: 'Белозеров Сергей',
-    },
-    {
-      id: 3,
-      name: 'Поляк Степан',
-    },
-  ]);
+  const employees = useSelector((state) => state.employeeReducer.users);
 
   const selectingEmployee = (event) => {
     event.stopPropagation();
